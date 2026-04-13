@@ -1,0 +1,162 @@
+/* Generated CSS Variables from Design: Untitled */
+
+:root {
+  /* Colors */
+
+  --beige: oklch(91% 0.07 81);
+  --orange: oklch(70% 0.19 43);
+  --orange-light: oklch(69% 0.17 40);
+  --blue: oklch(50% 0.1 245);
+  --turquoise-dark: oklch(43% 0.07 211);
+  --green-acid: oklch(72% 0.19 152);
+  --green-grass: oklch(70% 0.16 133);
+
+  --color-primary: var(--orange);
+  --color-secondary: var(--green-grass);
+  --color-accent: var(--orange-light);
+  --color-background: var(--beige);
+  --color-surface: var(--blue);
+  --color-text: var(--turquoise-dark);
+  --color-textSecondary: var(--beige);
+
+  /* Typography */
+  --font-family: IBM Plex Mono, monospace;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 0.75rem;
+  --spacing-lg: 1rem;
+  --spacing-xl: 1.5rem;
+
+  /* Border */
+  --border-width: 0px;
+  --border-style: none;
+  --border-radius: 0;
+}
+
+/* === Reset ================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--color-text);
+  background: var(--color-background);
+  line-height: 1.6;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100dvh;
+  margin: 0;
+}
+button {
+  appearance: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent;
+}
+
+button:active {
+  background-color: transparent;
+}
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  text-decoration: none;
+  padding-bottom: 1px;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--green-grass);
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+    transition:
+      opacity 50ms,
+      transform 0.3s ease;
+  }
+
+  &:hover::after {
+    opacity: 0.6;
+    transform: translate3d(0, 0, 0);
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0px;
+  color: var(--color-primary);
+}
+
+h1 {
+}
+h2 {
+}
+h3 {
+}
+h4 {
+}
+h5 {
+}
+p {
+  color: var(--color-text);
+}
+
+main,
+header,
+footer {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+body > header > nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
