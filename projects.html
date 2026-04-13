@@ -1,0 +1,262 @@
+<div id="display-projects" class="front-screen-projects display-content">
+  <h3 id="display-title" class="active">Projects</h3>
+  <!--- Left Arrow SVG --->
+  <button
+    id="project-left-arrow"
+    data-action="PROJECT_NAVIGATION"
+    data-id="previous">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+      <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
+    </svg>
+  </button>
+  <!--- Right Arrow SVG --->
+  <button
+    id="project-right-arrow"
+    data-action="PROJECT_NAVIGATION"
+    data-id="next">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+      <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+    </svg>
+  </button>
+
+  <div id="projects-content-container" class="projects-content screen-content">
+    <ul id="projects-main-menu">
+      <li
+        id="li-cephadex"
+        role="button"
+        class="slide-underline"
+        data-action="PROJECT_VIEW"
+        data-id="cephadex">
+        Cephadex - Ed-tech platform
+      </li>
+      <li
+        id="li-swift-swatch"
+        role="button"
+        class="slide-underline"
+        data-action="PROJECT_VIEW"
+        data-id="swift-swatch">
+        SwiftSwatch - UI designer
+      </li>
+      <li
+        id="li-cognaite"
+        class="slide-underline"
+        data-action="PROJECT_VIEW"
+        data-id="cognaite">
+        Cognaite - Starter Template
+      </li>
+      <li
+        id="li-chair-the-fed"
+        role="button"
+        class="slide-underline"
+        data-action="PROJECT_VIEW"
+        data-id="chair-the-fed">
+        Chair the Fed - Monetary Policy Simulator
+      </li>
+      <li
+        id="li-blog"
+        role="button"
+        class="slide-underline"
+        data-action="PROJECT_VIEW"
+        data-id="blog">
+        Personal Blog
+      </li>
+      <li
+        id="li-space-portfolio"
+        role="button"
+        class="slide-underline"
+        data-action="PROJECT_VIEW"
+        data-id="space-portfolio">
+        this.SpacePortfolio
+      </li>
+      <li
+        id="li-ai-story-tellers"
+        role="button"
+        class="slide-underline"
+        data-action="PROJECT_VIEW"
+        data-id="ai-story-tellers">
+        Neverending AI Story
+      </li>
+    </ul>
+    <div
+      id="project-content"
+      class="project-content"
+      data-action="PROJECT_VIEW"
+      data-id="project-content">
+      <div class="row-1">
+        <p
+          id="project-description"
+          data-action="PROJECT_VIEW"
+          data-id="project-description">
+          Description: An educational platform allowing for the creation of
+          flashcards, quizzes, games, & tests
+        </p>
+      </div>
+
+      <div class="row-2">
+        <div
+          class="projects-screenshot-container"
+          data-action="PROJECT_VIEW"
+          data-id="project-screenshot-container">
+          <img
+            id="project-screenshot"
+            class="projects-screenshot"
+            alt="Cephadex screenshot"
+            data-action="PROJECT_VIEW"
+            data-id="project-screenshot"
+            src="../src/assets/images/CephadexLogoSix.png" />
+        </div>
+        <div id="project-links-container">
+          <div class="space-between">
+            <div class="link-bubble"><p>Status</p></div>
+            <div class="link-link"></div>
+            <div class="pointed-text">
+              <p id="project-status">Online</p>
+            </div>
+          </div>
+
+          <div class="space-between">
+            <div class="link-bubble"><p>Link</p></div>
+            <div class="link-link"></div>
+
+            <div class="pointed-text">
+              <a
+                id="project-link"
+                class="links-section slide-underline"
+                data-action="IGNORE"
+                href="https://cephadex.com"
+                target="_blank"
+                >Access here</a
+              >
+            </div>
+          </div>
+
+          <div class="space-between">
+            <div class="link-bubble"><p>Repo</p></div>
+            <div class="link-link"></div>
+
+            <div class="pointed-text">
+              <a
+                id="project-repo"
+                class="repo-section slide-underline"
+                data-action="IGNORE"
+                data-id="project-repo"
+                href="https://cephadex.com"
+                target="_blank"
+                >Project Repo</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        id="project-feature-container"
+        class="feature-container row-3"
+        data-action="PROJECT_VIEW"
+        data-id="project-feature-container">
+        <div class="feature-button-container">
+          <button
+            id="tech-btn"
+            class=""
+            data-action="PROJECT_CLICKS"
+            data-id="tech-btn">
+            <span class="feature-title-icon">
+              <svg
+                class="icon-title-one"
+                width="34"
+                height="34"
+                viewBox="0 0 34 34"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M23.5 6.79395V11.2061L19.5 13.4277L15.5 11.2061V6.79395L19.5 4.57227L23.5 6.79395Z" />
+                <path
+                  d="M18.5 14.7939V19.2061L14.5 21.4277L10.5 19.2061V14.7939L14.5 12.5723L18.5 14.7939Z" />
+                <path
+                  d="M23.5 22.7939V27.2061L19.5 29.4277L15.5 27.2061V22.7939L19.5 20.5723L23.5 22.7939Z" />
+              </svg>
+            </span>
+            Tech
+          </button>
+          <button
+            id="feat-btn"
+            class="active"
+            data-action="PROJECT_CLICKS"
+            data-id="feat-btn">
+            <span class="feature-title-icon">
+              <svg
+                class="icon-title-two"
+                width="34"
+                height="34"
+                viewBox="0 0 34 34"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M23.5 6.79395V11.2051L19.5 13.4268L15.5 11.2051V6.79395L19.5 4.57227L23.5 6.79395Z" />
+                <path
+                  d="M18.5 14.7939V19.2051L14.5 21.4268L10.5 19.2051V14.7939L14.5 12.5723L18.5 14.7939Z" />
+                <path
+                  d="M23.5 22.7939V27.2051L19.5 29.4268L15.5 27.2051V22.7939L19.5 20.5723L23.5 22.7939Z" />
+              </svg>
+            </span>
+            Features
+          </button>
+          <button id="misc-btn" data-action="PROJECT_CLICKS" data-id="misc-btn">
+            <span class="feature-title-icon">
+              <svg
+                class="icon-title-three"
+                width="34"
+                height="34"
+                viewBox="0 0 34 34"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M23.5 6.79395V11.2051L19.5 13.4268L15.5 11.2051V6.79395L19.5 4.57227L23.5 6.79395Z" />
+                <path
+                  d="M18.5 14.7939V19.2051L14.5 21.4268L10.5 19.2051V14.7939L14.5 12.5723L18.5 14.7939Z" />
+                <path
+                  d="M23.5 22.7939V27.2051L19.5 29.4268L15.5 27.2051V22.7939L19.5 20.5723L23.5 22.7939Z" />
+              </svg>
+            </span>
+            Notes
+          </button>
+        </div>
+        <div
+          class="feature-content-container"
+          data-action=""
+          data-id="project-feature-container">
+          <ul
+            id="project-tech-content"
+            class="tech-content active"
+            data-action=""
+            data-id="project-tech-content">
+            <li>FastAPI backend with RESTful API</li>
+            <li>React frontend with Redux for state management</li>
+            <li>PostgreSQL database for data storage</li>
+            <li>Redis for caching and session management</li>
+            <li>Deployed on VPS using Docker containers</li>
+          </ul>
+          <ul
+            id="project-features-content"
+            class="feature-content active"
+            data-action=""
+            data-id="project-feature-content">
+            <li>FastAPI backend with RESTful API</li>
+            <li>React frontend with Redux for state management</li>
+            <li>PostgreSQL database for data storage</li>
+            <li>Redis for caching and session management</li>
+            <li>Deployed on VPS using Docker containers</li>
+          </ul>
+          <ul
+            id="project-notes-content"
+            class="notes-content"
+            data-action=""
+            data-id="project-notes-content">
+            <li>FastAPI backend with RESTful API</li>
+            <li>React frontend with Redux for state management</li>
+            <li>PostgreSQL database for data storage</li>
+            <li>Redis for caching and session management</li>
+            <li>Deployed on VPS using Docker containers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

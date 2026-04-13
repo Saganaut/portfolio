@@ -158,7 +158,27 @@ footer {
   margin-right: auto;
   width: 100%; */
 }
-
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(
+    to bottom,
+    oklch(0.91 0.07 81 / 1),
+    oklch(0.91 0.07 81 / 0.75),
+    oklch(0.91 0.07 81 / 0)
+  );
+  padding-left: 20px;
+  padding-right: 20px;
+}
+footer {
+  min-height: 50dvh;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
 body > header > nav {
   display: flex;
   align-items: center;
@@ -177,6 +197,11 @@ body > header > nav {
 
 section {
   min-height: 85dvh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .button {
@@ -185,12 +210,21 @@ section {
   max-width: 200px;
   padding: 1rem 2rem;
   font-size: 20px;
+  font-weight: 600;
   color: var(--beige);
   border: 2px var(--green-grass) solid;
   &:hover {
-    border: 2px var(--turquoise-dark) solid;
     color: var(--green-grass);
     background-color: transparent;
+  }
+  &.inverted {
+    background-color: transparent;
+    color: var(--orange);
+    &:hover {
+      background-color: var(--green-grass);
+      color: var(--beige);
+      /* border: 2px var(--orange) solid; */
+    }
   }
 }
 .content {
@@ -203,6 +237,7 @@ section {
   min-height: 85dvh;
   padding-left: 40px;
 }
+
 #hero-section {
   background-image:
     linear-gradient(
@@ -211,9 +246,6 @@ section {
       oklch(91% 0.07 81 / 1)
     ),
     url("assets/images/hero-background.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 
   .content {
     display: grid;
@@ -247,9 +279,6 @@ section {
       oklch(91% 0.07 81 / 1)
     ),
     url("assets/images/projects-background.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 #background-section {
@@ -260,9 +289,6 @@ section {
       oklch(91% 0.07 81 / 1)
     ),
     url("assets/images/background-background.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 #education-section {
   background-image:
@@ -272,7 +298,13 @@ section {
       oklch(91% 0.07 81 / 1)
     ),
     url("assets/images/education-background.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+}
+#resume-section {
+  background-image:
+    linear-gradient(
+      oklch(91% 0.07 81 / 1),
+      oklch(91% 0.07 81 / 0.8),
+      oklch(91% 0.07 81 / 1)
+    ),
+    url("assets/images/professional-background.webp");
 }
