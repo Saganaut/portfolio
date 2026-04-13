@@ -55,11 +55,148 @@
         </div>
       </section>
       <section id="projects-section">
-        <div class="content">
+        <div class="content projects-content">
           <h2>Projects</h2>
-          <p>Your portfolio content goes here.</p>
+          <div
+            class="carousel-wrapper"
+            role="region"
+            aria-label="Projects carousel">
+            <button
+              class="carousel-btn carousel-btn--prev"
+              id="carousel-prev"
+              aria-label="Previous project">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 -960 960 960"
+                width="32"
+                height="32">
+                <path
+                  d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
+              </svg>
+            </button>
+            <div class="carousel-viewport" id="carousel-viewport">
+              <div class="carousel-track" id="carousel-track"></div>
+            </div>
+            <button
+              class="carousel-btn carousel-btn--next"
+              id="carousel-next"
+              aria-label="Next project">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 -960 960 960"
+                width="32"
+                height="32">
+                <path
+                  d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+              </svg>
+            </button>
+          </div>
         </div>
       </section>
+
+      <!-- Project Modal -->
+      <div
+        id="project-modal"
+        class="modal-overlay"
+        aria-hidden="true"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        inert>
+        <div class="modal-dialog">
+          <div class="modal-header">
+            <div class="modal-nav" role="group" aria-label="Project navigation">
+              <button
+                class="modal-nav-btn"
+                id="modal-prev"
+                aria-label="Previous project">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                  width="20"
+                  height="20">
+                  <path
+                    d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
+                </svg>
+              </button>
+              <span
+                id="modal-counter"
+                class="modal-counter"
+                aria-live="polite"
+                aria-atomic="true"></span>
+              <button
+                class="modal-nav-btn"
+                id="modal-next"
+                aria-label="Next project">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 -960 960 960"
+                  width="20"
+                  height="20">
+                  <path
+                    d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+                </svg>
+              </button>
+            </div>
+            <button
+              class="modal-close"
+              id="modal-close"
+              aria-label="Close modal">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 -960 960 960"
+                width="20"
+                height="20">
+                <path
+                  d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+              </svg>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-col-left">
+              <img id="modal-image" class="modal-image" alt="" />
+              <div class="modal-meta">
+                <div class="modal-meta-row">
+                  <span class="meta-label">Status</span>
+                  <span id="modal-status" class="meta-value"></span>
+                </div>
+                <div class="modal-meta-row">
+                  <span class="meta-label">Link</span>
+                  <a
+                    id="modal-link"
+                    class="meta-value slide-underline"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    >Access here</a
+                  >
+                </div>
+                <div class="modal-meta-row">
+                  <span class="meta-label">Repo</span>
+                  <a
+                    id="modal-repo"
+                    class="meta-value slide-underline"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    >Project Repo</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="modal-col-right">
+              <h3 id="modal-title" class="modal-title" tabindex="-1"></h3>
+              <p id="modal-description" class="modal-description"></p>
+              <div class="modal-tabs">
+                <button class="modal-tab active" data-tab="tech">Tech</button>
+                <button class="modal-tab" data-tab="features">Features</button>
+                <button class="modal-tab" data-tab="notes">Notes</button>
+              </div>
+              <ul id="modal-list" class="modal-list"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
       <section id="background-section">
         <div class="content">
           <h2>Background</h2>
@@ -67,21 +204,673 @@
         </div>
       </section>
       <section id="education-section">
-        <div class="content">
+        <div class="content education-content">
           <h2>Education</h2>
-          <p>Your portfolio content goes here.</p>
+          <div class="education-layout">
+            <div class="edu-timeline">
+              <div class="edu-entry">
+                <span class="edu-year">2022</span>
+                <div class="edu-details">
+                  <p class="edu-title">
+                    CS50x: Introduction to Computer Science
+                  </p>
+                  <p class="edu-institution">Harvard University — edX</p>
+                </div>
+              </div>
+              <div class="edu-entry">
+                <span class="edu-year">2017</span>
+                <div class="edu-details">
+                  <p class="edu-title">
+                    Post Graduate Certificate in Education
+                  </p>
+                  <p class="edu-credential">NFQ Level 9</p>
+                  <p class="edu-institution">University of Nottingham, UK</p>
+                </div>
+              </div>
+              <div class="edu-entry">
+                <span class="edu-year">2009</span>
+                <div class="edu-details">
+                  <p class="edu-title">
+                    Course on Environmental Decision Making
+                  </p>
+                  <p class="edu-institution">The Open University, UK</p>
+                </div>
+              </div>
+              <div class="edu-entry">
+                <span class="edu-year">2006</span>
+                <div class="edu-details">
+                  <p class="edu-title">Bachelor of Science in Economics</p>
+                  <p class="edu-credential">NFQ Level 8</p>
+                  <p class="edu-institution">Santa Clara University, CA, USA</p>
+                </div>
+              </div>
+              <div class="edu-entry edu-entry--progress">
+                <span class="edu-year edu-year--progress"
+                  >In&nbsp;Progress</span
+                >
+                <div class="edu-details">
+                  <p class="edu-title">AWS Certified Developer</p>
+                  <p class="edu-institution">Amazon Web Services</p>
+                </div>
+              </div>
+              <div class="edu-entry edu-entry--progress">
+                <span class="edu-year edu-year--progress"
+                  >In&nbsp;Progress</span
+                >
+                <div class="edu-details">
+                  <p class="edu-title">Algorithm Specialization</p>
+                  <p class="edu-institution">Coursera / Stanford University</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="edu-sidebar">
+              <div class="edu-sidebar-block">
+                <h4 class="edu-sidebar-heading">Languages</h4>
+                <ul class="edu-lang-list">
+                  <li>
+                    <span class="lang-name">English</span
+                    ><span class="tag --lang">Native</span>
+                  </li>
+                  <li>
+                    <span class="lang-name">French</span
+                    ><span class="tag --lang">Native</span>
+                  </li>
+                  <li>
+                    <span class="lang-name">Spanish</span
+                    ><span class="tag --lang">Intermediate</span>
+                  </li>
+                  <li>
+                    <span class="lang-name">Mandarin</span
+                    ><span class="tag --lang">Intermediate</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="edu-sidebar-block">
+                <h4 class="edu-sidebar-heading">Certifications</h4>
+                <ul class="edu-cert-list">
+                  <li>Prince2</li>
+                  <li>Certified Bicycle Mechanic</li>
+                  <li>IB DP Economics Cat 2</li>
+                  <li>IB DP Business Cat 1</li>
+                </ul>
+              </div>
+              <div class="edu-sidebar-block">
+                <h4 class="edu-sidebar-heading">Design</h4>
+                <ul class="edu-cert-list">
+                  <li>UI/UX Design</li>
+                  <li>Wireframing &amp; Prototyping</li>
+                  <li>Figma</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <section id="resume-section">
-        <div class="content">
+        <div class="content resume-content">
           <h2>Professional experience</h2>
-          <p>Your portfolio content goes here.</p>
+          <div class="resume-timeline">
+            <div class="resume-entry">
+              <div class="resume-meta">
+                <span class="resume-dates">2024 — Present</span>
+                <span class="tag --dev">Development</span>
+              </div>
+              <div class="resume-details">
+                <p class="resume-role">Freelance Web Developer</p>
+                <ul class="resume-bullets">
+                  <li>
+                    Maintained a high-availability portfolio of 15+ WordPress
+                    installations for premium agency clients, ensuring 99.9%
+                    uptime.
+                  </li>
+                  <li>
+                    Acted as lead technical contact, translating stakeholder
+                    needs into technical solutions.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="resume-entry">
+              <div class="resume-meta">
+                <span class="resume-dates">2022 — 2024</span>
+                <span class="resume-location">Limerick, Ireland</span>
+                <span class="tag --dev">Development</span>
+              </div>
+              <div class="resume-details">
+                <p class="resume-role">Founder &amp; Lead Developer</p>
+                <p class="resume-company">Cephadex Ltd</p>
+                <ul class="resume-bullets">
+                  <li>
+                    Conceptualized and built a full-stack EdTech platform from
+                    the ground up.
+                  </li>
+                  <li>
+                    <strong>Architecture:</strong> Migrated an initial Flask
+                    prototype to a high-performance FastAPI, React, and
+                    PostgreSQL stack to support asynchronous AI processing.
+                  </li>
+                  <li>
+                    <strong>Real-time:</strong> Developed multiplayer classroom
+                    modules using WebSockets for low-latency, concurrent user
+                    play.
+                  </li>
+                  <li>
+                    <strong>Infrastructure:</strong> Containerized the platform
+                    with Docker for stateless deployment on a self-managed Linux
+                    VPS.
+                  </li>
+                  <li>
+                    <strong>Leadership:</strong> Directed the full project
+                    lifecycle, managing remote freelancers for UI/UX and graphic
+                    design.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="resume-entry">
+              <div class="resume-meta">
+                <span class="resume-dates">2019 — 2022</span>
+                <span class="resume-location">Lima, Peru</span>
+                <span class="tag --edu">Education</span>
+              </div>
+              <div class="resume-details">
+                <p class="resume-role">Economics Teacher</p>
+                <p class="resume-company">Markham College</p>
+                <ul class="resume-bullets">
+                  <li>
+                    Taught IB Economics with excellent outcomes — 15% of
+                    students scoring a 7, with a class average of 5.85.
+                  </li>
+                  <li>
+                    Organized and led clubs focused on environmental issues,
+                    investment, and debate.
+                  </li>
+                  <li>EE and CAS advisor. Tutor group supervisor.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="resume-entry">
+              <div class="resume-meta">
+                <span class="resume-dates">2017 — 2019</span>
+                <span class="resume-location">Shanghai, China</span>
+                <span class="tag --edu">Education</span>
+              </div>
+              <div class="resume-details">
+                <p class="resume-role">Economics &amp; Business Teacher</p>
+                <p class="resume-company">QDHS</p>
+                <ul class="resume-bullets">
+                  <li>
+                    Created and planned IB DP courses for both Economics and
+                    Business.
+                  </li>
+                  <li>
+                    Maintained high standards — 20% of Economics students and
+                    25% of Business students scoring a 7.
+                  </li>
+                  <li>
+                    Outstanding Educator award from University of Chicago.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="resume-entry resume-entry--footnote">
+              <div class="resume-meta">
+                <span class="resume-dates">Earlier</span>
+              </div>
+              <div class="resume-details">
+                <p class="resume-footnote">
+                  Additional experience includes 6+ years in education as well
+                  as project planning for Euro Disneyland Imagineering. Details
+                  available upon request.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>&copy; 2024 Your Name. All rights reserved.</p>
+      <p>&copy; 2026 Kevin McCarthy. All rights reserved.</p>
     </footer>
+
+    <script>
+      // ── Project Data ──────────────────────────────────────────────
+      const PROJECTS = [
+        {
+          id: "cephadex",
+          name: "Cephadex",
+          subtitle: "Ed-tech platform",
+          description:
+            "An educational platform allowing for the creation of flashcards, quizzes, games, & tests.",
+          image: "assets/images/CephadexLogoSix.png",
+          tags: ["FastAPI", "React", "PostgreSQL", "Redis", "Docker"],
+          status: "Online",
+          link: "https://cephadex.com",
+          repo: "",
+          tech: [
+            "FastAPI backend with RESTful API",
+            "React frontend with Redux for state management",
+            "PostgreSQL database for data storage",
+            "Redis for caching and session management",
+            "Deployed on VPS using Docker containers",
+          ],
+          features: [
+            "Flashcard creation and multiple study modes",
+            "Quiz builder with varied question types",
+            "Interactive game modes",
+            "Test generation and grading",
+            "Progress tracking and analytics",
+          ],
+          notes: [
+            "Full-stack solo project",
+            "Actively maintained with a growing user base",
+          ],
+        },
+        {
+          id: "swift-swatch",
+          name: "SwiftSwatch",
+          subtitle: "UI designer tool",
+          description:
+            "A UI design tool for rapidly generating and previewing color swatches and design tokens.",
+          image: "assets/images/swift-swatch-logo-sm.png",
+          tags: ["React", "CSS", "LocalStorage"],
+          status: "Online",
+          link: "https://swiftswatch.com",
+          repo: "#",
+          tech: [
+            "React",
+            "CSS custom properties",
+            "Color manipulation library",
+            "LocalStorage for persistence",
+          ],
+          features: [
+            "Color palette generation",
+            "Design token export",
+            "Live preview",
+            "Clipboard integration",
+          ],
+          notes: [
+            "Built to solve a personal pain point in design workflows",
+            "Used in the design of this portfolio",
+          ],
+        },
+        {
+          id: "cognaite",
+          name: "Cognaite",
+          subtitle: "Starter template",
+          description:
+            "A modern full-stack starter template for quickly bootstrapping new web applications.",
+          image: "assets/images/starter-logo.svg",
+          tags: ["React", "FastAPI", "PostgreSQL", "Docker", "TypeScript"],
+          status: "Online",
+          link: "https://cognaite.com",
+          repo: "#",
+          tech: ["React", "FastAPI", "PostgreSQL", "Docker", "TypeScript"],
+          features: [
+            "Authentication out of the box",
+            "Database migrations setup",
+            "API scaffolding",
+            "Docker-compose dev environment",
+          ],
+          notes: ["Open source project", "Designed for rapid prototyping"],
+        },
+        {
+          id: "chair-the-fed",
+          name: "Chair the Fed",
+          subtitle: "Monetary policy simulator",
+          description:
+            "An interactive simulator that puts you in the seat of the Federal Reserve chair, managing monetary policy decisions.",
+          image: "assets/images/chair-the-fed.webp",
+          tags: ["React", "D3.js", "Recharts"],
+          status: "Online",
+          link: "https://saganaut.github.io/Chair-the-Fed/",
+          repo: "https://github.com/saganaut/Chair-the-Fed",
+          tech: [
+            "React",
+            "D3.js for data visualizations",
+            "Custom economic model engine",
+            "Recharts for charting",
+          ],
+          features: [
+            "Real-time economic indicators",
+            "Interest rate controls",
+            "Policy outcome simulation",
+            "Historical scenario comparisons",
+          ],
+          notes: [
+            "Combines economics background with software development",
+            "Useful for teaching monetary policy concepts",
+          ],
+        },
+        {
+          id: "blog",
+          name: "Personal Blog",
+          subtitle: "Writing & thoughts",
+          description:
+            "A personal blog covering topics in software development, economics, and education.",
+          image: "assets/images/acorn.png",
+          tags: ["Static Site", "Markdown", "CDN"],
+          status: "Online",
+          link: "https://blog.cognaite.com",
+          repo: "#",
+          tech: [
+            "Static site generator",
+            "Markdown content",
+            "Deployed on CDN",
+          ],
+          features: [
+            "Technical deep-dives",
+            "Economics commentary",
+            "Project write-ups and retrospectives",
+          ],
+          notes: ["Updated regularly"],
+        },
+        {
+          id: "space-portfolio",
+          name: "this.SpacePortfolio",
+          subtitle: "Previous portfolio site",
+          description:
+            "A space-themed interactive portfolio with a retro computer terminal aesthetic.",
+          image: "assets/images/alien-sidekick-sm.webp",
+          tags: ["Vanilla JS", "CSS", "Canvas"],
+          status: "Online",
+          link: "https://mccarthykev.dev/space-portfolio",
+          repo: "#",
+          tech: ["Vanilla JavaScript", "CSS animations", "HTML5 Canvas"],
+          features: [
+            "Animated space background",
+            "Terminal-style navigation",
+            "Interactive project showcase",
+          ],
+          notes: [
+            "Pure HTML/CSS/JS — zero frameworks",
+            "Inspired by retro sci-fi aesthetics",
+          ],
+        },
+        {
+          id: "ai-story-tellers",
+          name: "Neverending AI Story",
+          subtitle: "Collaborative AI storytelling",
+          description:
+            "A platform for collaborative AI-assisted storytelling where narratives evolve based on community contributions.",
+          image: "assets/images/aistorytellers.webp",
+          tags: ["React", "Node.js", "OpenAI", "PostgreSQL"],
+          status: "Online",
+          link: "#",
+          repo: "https://github.com/saganaut/aiechoes",
+          tech: [
+            "React frontend",
+            "Node.js backend",
+            "OpenAI API integration",
+            "PostgreSQL",
+          ],
+          features: [
+            "AI story continuation",
+            "Community voting on story paths",
+            "Character creation",
+            "Branching narrative structure",
+          ],
+          notes: ["Explores human-AI creative collaboration"],
+        },
+      ];
+
+      // ── Modal ─────────────────────────────────────────────────────
+      const modal = document.getElementById("project-modal");
+      const modalClose = document.getElementById("modal-close");
+      const modalPrev = document.getElementById("modal-prev");
+      const modalNext = document.getElementById("modal-next");
+      const modalCounter = document.getElementById("modal-counter");
+      const modalTitle = document.getElementById("modal-title");
+      const modalDesc = document.getElementById("modal-description");
+      const modalImg = document.getElementById("modal-image");
+      const modalStat = document.getElementById("modal-status");
+      const modalLink = document.getElementById("modal-link");
+      const modalRepo = document.getElementById("modal-repo");
+      const modalList = document.getElementById("modal-list");
+      const modalTabs = document.querySelectorAll(".modal-tab");
+
+      let activeProject = null;
+      let activeTab = "tech";
+      let currentModalIndex = -1;
+      let lastFocusedEl = null;
+
+      function renderModalList(items) {
+        modalList.innerHTML = items.map((item) => `<li>${item}</li>`).join("");
+      }
+
+      function switchTab(tab) {
+        activeTab = tab;
+        modalTabs.forEach((t) =>
+          t.classList.toggle("active", t.dataset.tab === tab),
+        );
+        if (activeProject) renderModalList(activeProject[tab]);
+      }
+
+      // triggerEl  — the element that opened the modal (to restore focus on close)
+      // moveFocus  — whether to shift focus into the modal (false when navigating within)
+      function openModal(project, triggerEl, moveFocus = true) {
+        activeProject = project;
+        currentModalIndex = PROJECTS.indexOf(project);
+        if (triggerEl !== undefined) lastFocusedEl = triggerEl;
+
+        modalTitle.textContent = project.name;
+        modalDesc.textContent = project.description;
+        modalImg.src = project.image;
+        modalImg.alt = project.name;
+        modalStat.textContent = project.status;
+        modalLink.href = project.link;
+        modalRepo.href = project.repo;
+        modalCounter.textContent = `${currentModalIndex + 1} / ${PROJECTS.length}`;
+        switchTab("tech");
+
+        modal.removeAttribute("inert");
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+
+        if (moveFocus) {
+          // Defer so the transition has started before we move focus
+          requestAnimationFrame(() => modalClose.focus());
+        }
+      }
+
+      function closeModal() {
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        modal.setAttribute("inert", "");
+        document.body.style.overflow = "";
+        activeProject = null;
+        currentModalIndex = -1;
+        if (lastFocusedEl) {
+          lastFocusedEl.focus();
+          lastFocusedEl = null;
+        }
+      }
+
+      function navigateModal(dir) {
+        const next =
+          (currentModalIndex + dir + PROJECTS.length) % PROJECTS.length;
+        openModal(PROJECTS[next], undefined, false); // preserve lastFocusedEl, keep focus in place
+      }
+
+      // Focus trap: keep Tab cycling within the open modal
+      modal.addEventListener("keydown", (e) => {
+        if (e.key !== "Tab") return;
+        const focusable = Array.from(
+          modal.querySelectorAll(
+            'button:not([disabled]), [href], [tabindex]:not([tabindex="-1"])',
+          ),
+        ).filter((el) => el.offsetParent !== null); // visible only
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      });
+
+      modalClose.addEventListener("click", closeModal);
+      modalPrev.addEventListener("click", () => navigateModal(-1));
+      modalNext.addEventListener("click", () => navigateModal(1));
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+      modalTabs.forEach((tab) =>
+        tab.addEventListener("click", () => switchTab(tab.dataset.tab)),
+      );
+
+      // ── Carousel ──────────────────────────────────────────────────
+      let carouselNavigate = null; // exposed for keyboard handler below
+
+      (function () {
+        const CLONE_COUNT = 3;
+        const REAL_COUNT = PROJECTS.length;
+
+        const viewport = document.getElementById("carousel-viewport");
+        const track = document.getElementById("carousel-track");
+        const btnPrev = document.getElementById("carousel-prev");
+        const btnNext = document.getElementById("carousel-next");
+
+        const ordered = [
+          ...PROJECTS.slice(-CLONE_COUNT),
+          ...PROJECTS,
+          ...PROJECTS.slice(0, CLONE_COUNT),
+        ];
+
+        let trackPos = CLONE_COUNT;
+        let isAnimating = false;
+
+        function cw() {
+          return viewport.offsetWidth / 3;
+        }
+
+        function createCard(project) {
+          const el = document.createElement("div");
+          el.className = "project-card";
+          el.style.width = cw() + "px";
+          el.setAttribute("role", "button");
+          el.setAttribute("tabindex", "0");
+          el.setAttribute(
+            "aria-label",
+            `Open ${project.name} — ${project.subtitle}`,
+          );
+          const tagsHtml = project.tags
+            .map((t) => `<span class="tag card-tag">${t}</span>`)
+            .join("");
+          el.innerHTML = `
+            <div class="project-card-inner">
+              <div class="project-card-image-wrap">
+                <img class="project-card-image" src="${project.image}" alt="" />
+              </div>
+              <div class="project-card-body">
+                <p class="project-card-name">${project.name}</p>
+                <p class="project-card-subtitle">${project.subtitle}</p>
+                <p class="project-card-desc">${project.description}</p>
+                <div class="project-card-tags">${tagsHtml}</div>
+              </div>
+            </div>`;
+          el.addEventListener("click", () => openModal(project, el));
+          el.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openModal(project, el);
+            }
+          });
+          return el;
+        }
+
+        function setPosition(pos, animate) {
+          track.style.transition = animate ? "transform 0.4s ease" : "none";
+          track.style.transform = `translateX(${-pos * cw()}px)`;
+        }
+
+        function navigate(dir) {
+          if (isAnimating) return;
+          isAnimating = true;
+          trackPos += dir;
+          setPosition(trackPos, true);
+
+          function onEnd() {
+            track.removeEventListener("transitionend", onEnd);
+            if (trackPos >= REAL_COUNT + CLONE_COUNT) {
+              trackPos -= REAL_COUNT;
+              setPosition(trackPos, false);
+            } else if (trackPos < CLONE_COUNT) {
+              trackPos += REAL_COUNT;
+              setPosition(trackPos, false);
+            }
+            isAnimating = false;
+          }
+          track.addEventListener("transitionend", onEnd);
+        }
+
+        function syncWidths() {
+          const w = cw();
+          Array.from(track.children).forEach((c) => {
+            c.style.width = w + "px";
+          });
+          setPosition(trackPos, false);
+        }
+
+        ordered.forEach((p) => track.appendChild(createCard(p)));
+        setPosition(trackPos, false);
+
+        btnPrev.addEventListener("click", () => navigate(-1));
+        btnNext.addEventListener("click", () => navigate(1));
+
+        let resizeTimer;
+        window.addEventListener("resize", () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(syncWidths, 100);
+        });
+
+        carouselNavigate = navigate; // expose for global keyboard handler
+      })();
+
+      // ── Global keyboard handler ────────────────────────────────────
+      document.addEventListener("keydown", (e) => {
+        const isOpen = modal.classList.contains("is-open");
+
+        if (isOpen) {
+          if (e.key === "ArrowLeft") {
+            e.preventDefault();
+            navigateModal(-1);
+          }
+          if (e.key === "ArrowRight") {
+            e.preventDefault();
+            navigateModal(1);
+          }
+          if (e.key === "Escape") closeModal();
+          // Tab is handled by the focus-trap listener on the modal element
+        } else {
+          // Navigate the carousel when focus is anywhere in the projects section
+          const section = document.getElementById("projects-section");
+          if (section && section.contains(document.activeElement)) {
+            if (e.key === "ArrowLeft") {
+              e.preventDefault();
+              carouselNavigate(-1);
+            }
+            if (e.key === "ArrowRight") {
+              e.preventDefault();
+              carouselNavigate(1);
+            }
+          }
+        }
+      });
+    </script>
   </body>
 </html>
