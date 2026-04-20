@@ -13,7 +13,57 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <title>Portfolio</title>
+
+    <!-- Primary meta -->
+    <title>Kevin McCarthy — Full Stack Developer</title>
+    <meta
+      name="description"
+      content="Full Stack Developer. Building thoughtful digital experiences from the ground up." />
+    <meta name="author" content="Kevin McCarthy" />
+    <meta
+      name="keywords"
+      content="full stack developer, web developer, software engineer, React, Python, FastAPI, portfolio" />
+    <link rel="canonical" href="https://kevmccarthy.dev/" />
+
+    <!-- Open Graph (Facebook, LinkedIn, iMessage, etc.) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kevmccarthy.dev/" />
+    <meta property="og:title" content="Kevin McCarthy — Full Stack Developer" />
+    <meta
+      property="og:description"
+      content="Full Stack Developer. Building thoughtful digital experiences from the ground up." />
+    <meta
+      property="og:image"
+      content="https://kevmccarthy.dev/assets/images/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Kevin McCarthy — Full Stack Developer" />
+    <meta property="og:site_name" content="Kevin McCarthy" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@kevmccarthy" />
+    <meta name="twitter:creator" content="@kevmccarthy" />
+    <meta
+      name="twitter:title"
+      content="Kevin McCarthy — Full Stack Developer" />
+    <meta
+      name="twitter:description"
+      content="Full Stack Developer. Building thoughtful digital experiences from the ground up." />
+    <meta
+      name="twitter:image"
+      content="https://kevmccarthy.dev/assets/images/og-image.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Kevin McCarthy — Full Stack Developer" />
+
+    <!-- Robots / indexing -->
+    <meta name="robots" content="index, follow" />
+
+    <link rel="preload" as="image" href="assets/images/hero-background.webp" />
   </head>
   <body>
     <header>
@@ -21,12 +71,24 @@
         <div>
           <img src="assets/kem-logo-no-bg-dark-xs.png" alt="Kev Dev Logo" />
         </div>
-        <div class="nav-links">
+        <div class="nav-links" id="nav-links">
           <a href="#projects-section">Projects</a>
-          <a href="#background-section">Background</a>
+          <!-- <a href="#background-section">Background</a> -->
+          <a href="#resume-section">Experience</a>
           <a href="#education-section">Education</a>
-          <a href="#resume-section">Resume</a>
+
+          <a href="#contact-section">Contact</a>
         </div>
+        <button
+          class="nav-hamburger"
+          id="nav-hamburger"
+          aria-controls="nav-links"
+          aria-expanded="false"
+          aria-label="Open navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </nav>
     </header>
 
@@ -34,22 +96,26 @@
       <section id="hero-section">
         <div class="content">
           <div class="copy">
+            <div class="hire-badge" aria-label="Currently available for hire">
+              <span class="hire-dot" aria-hidden="true"></span>
+              Available for hire
+            </div>
             <h1>Kevin McCarthy</h1>
             <p class="tagline">
-              A <strong>Full Stack Developer</strong> with a background in
+              <strong>Full Stack Developer</strong> with a background in
               <strong>Economics</strong> and <strong>Education</strong>.
             </p>
             <p class="description">
-              Elit magna labore in cupidatat laboris cupidatat reprehenderit
-              nisi aliquip nostrud. Nisi proident aliquip irure sint nisi fugiat
-              incididunt qui minim proident. Excepteur elit do dolore aliqua
-              incididunt irure. Et excepteur aute deserunt ut cillum cillum.
-              Tempor aute pariatur minim proident sint tempor ea officia
-              adipisicing eiusmod.
+              I bring five years of full-stack experience and a lifetime of
+              curiosity to the table. My background in Economics means I care
+              about efficiency and ROI as much as I do about clean code. Whether
+              I’m working solo or embedded in a team, I use solid tech and AI to
+              bridge the gap between complex problems and intuitive digital
+              solutions.
             </p>
             <div>
-              <button class="button">Contact Me</button>
-              <button class="button inverted">A button</button>
+              <a href="#contact-section" class="button">Contact Me</a>
+              <!-- <button class="button inverted">A button</button> -->
             </div>
           </div>
         </div>
@@ -57,40 +123,7 @@
       <section id="projects-section">
         <div class="content projects-content">
           <h2>Projects</h2>
-          <div
-            class="carousel-wrapper"
-            role="region"
-            aria-label="Projects carousel">
-            <button
-              class="carousel-btn carousel-btn--prev"
-              id="carousel-prev"
-              aria-label="Previous project">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 -960 960 960"
-                width="32"
-                height="32">
-                <path
-                  d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z" />
-              </svg>
-            </button>
-            <div class="carousel-viewport" id="carousel-viewport">
-              <div class="carousel-track" id="carousel-track"></div>
-            </div>
-            <button
-              class="carousel-btn carousel-btn--next"
-              id="carousel-next"
-              aria-label="Next project">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 -960 960 960"
-                width="32"
-                height="32">
-                <path
-                  d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
-              </svg>
-            </button>
-          </div>
+          <div class="projects-list" id="projects-list"></div>
         </div>
       </section>
 
@@ -197,116 +230,13 @@
           </div>
         </div>
       </div>
-      <section id="background-section">
+      <!-- <section id="background-section">
         <div class="content">
           <h2>Background</h2>
           <p>Your portfolio content goes here.</p>
         </div>
-      </section>
-      <section id="education-section">
-        <div class="content education-content">
-          <h2>Education</h2>
-          <div class="education-layout">
-            <div class="edu-timeline">
-              <div class="edu-entry">
-                <span class="edu-year">2022</span>
-                <div class="edu-details">
-                  <p class="edu-title">
-                    CS50x: Introduction to Computer Science
-                  </p>
-                  <p class="edu-institution">Harvard University — edX</p>
-                </div>
-              </div>
-              <div class="edu-entry">
-                <span class="edu-year">2017</span>
-                <div class="edu-details">
-                  <p class="edu-title">
-                    Post Graduate Certificate in Education
-                  </p>
-                  <p class="edu-credential">NFQ Level 9</p>
-                  <p class="edu-institution">University of Nottingham, UK</p>
-                </div>
-              </div>
-              <div class="edu-entry">
-                <span class="edu-year">2009</span>
-                <div class="edu-details">
-                  <p class="edu-title">
-                    Course on Environmental Decision Making
-                  </p>
-                  <p class="edu-institution">The Open University, UK</p>
-                </div>
-              </div>
-              <div class="edu-entry">
-                <span class="edu-year">2006</span>
-                <div class="edu-details">
-                  <p class="edu-title">Bachelor of Science in Economics</p>
-                  <p class="edu-credential">NFQ Level 8</p>
-                  <p class="edu-institution">Santa Clara University, CA, USA</p>
-                </div>
-              </div>
-              <div class="edu-entry edu-entry--progress">
-                <span class="edu-year edu-year--progress"
-                  >In&nbsp;Progress</span
-                >
-                <div class="edu-details">
-                  <p class="edu-title">AWS Certified Developer</p>
-                  <p class="edu-institution">Amazon Web Services</p>
-                </div>
-              </div>
-              <div class="edu-entry edu-entry--progress">
-                <span class="edu-year edu-year--progress"
-                  >In&nbsp;Progress</span
-                >
-                <div class="edu-details">
-                  <p class="edu-title">Algorithm Specialization</p>
-                  <p class="edu-institution">Coursera / Stanford University</p>
-                </div>
-              </div>
-            </div>
+      </section> -->
 
-            <div class="edu-sidebar">
-              <div class="edu-sidebar-block">
-                <h4 class="edu-sidebar-heading">Languages</h4>
-                <ul class="edu-lang-list">
-                  <li>
-                    <span class="lang-name">English</span
-                    ><span class="tag --lang">Native</span>
-                  </li>
-                  <li>
-                    <span class="lang-name">French</span
-                    ><span class="tag --lang">Native</span>
-                  </li>
-                  <li>
-                    <span class="lang-name">Spanish</span
-                    ><span class="tag --lang">Intermediate</span>
-                  </li>
-                  <li>
-                    <span class="lang-name">Mandarin</span
-                    ><span class="tag --lang">Intermediate</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="edu-sidebar-block">
-                <h4 class="edu-sidebar-heading">Certifications</h4>
-                <ul class="edu-cert-list">
-                  <li>Prince2</li>
-                  <li>Certified Bicycle Mechanic</li>
-                  <li>IB DP Economics Cat 2</li>
-                  <li>IB DP Business Cat 1</li>
-                </ul>
-              </div>
-              <div class="edu-sidebar-block">
-                <h4 class="edu-sidebar-heading">Design</h4>
-                <ul class="edu-cert-list">
-                  <li>UI/UX Design</li>
-                  <li>Wireframing &amp; Prototyping</li>
-                  <li>Figma</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <section id="resume-section">
         <div class="content resume-content">
           <h2>Professional experience</h2>
@@ -314,6 +244,8 @@
             <div class="resume-entry">
               <div class="resume-meta">
                 <span class="resume-dates">2024 — Present</span>
+                <span class="resume-location">Kenmare, Ireland</span>
+
                 <span class="tag --dev">Development</span>
               </div>
               <div class="resume-details">
@@ -433,10 +365,274 @@
           </div>
         </div>
       </section>
+      <section id="education-section">
+        <div class="content education-content">
+          <h2>Education</h2>
+          <div class="education-layout">
+            <div class="edu-timeline">
+              <div class="edu-entry edu-entry--progress">
+                <span class="edu-year edu-year--progress"
+                  >In&nbsp;Progress</span
+                >
+                <div class="edu-details">
+                  <p class="edu-title">AWS Certified Developer</p>
+                  <p class="edu-institution">Amazon Web Services</p>
+                </div>
+              </div>
+              <div class="edu-entry edu-entry--progress">
+                <span class="edu-year edu-year--progress"
+                  >In&nbsp;Progress</span
+                >
+                <div class="edu-details">
+                  <p class="edu-title">Algorithm Specialization</p>
+                  <p class="edu-institution">Coursera / Stanford University</p>
+                </div>
+              </div>
+              <div class="edu-entry">
+                <span class="edu-year">2022</span>
+                <div class="edu-details">
+                  <p class="edu-title">
+                    CS50x: Introduction to Computer Science
+                  </p>
+                  <p class="edu-institution">Harvard University — edX</p>
+                </div>
+              </div>
+              <div class="edu-entry">
+                <span class="edu-year">2017</span>
+                <div class="edu-details">
+                  <p class="edu-title">
+                    Post Graduate Certificate in Education
+                  </p>
+                  <p class="edu-credential">NFQ Level 9</p>
+                  <p class="edu-institution">University of Nottingham, UK</p>
+                </div>
+              </div>
+              <div class="edu-entry">
+                <span class="edu-year">2009</span>
+                <div class="edu-details">
+                  <p class="edu-title">
+                    Course on Environmental Decision Making
+                  </p>
+                  <p class="edu-institution">The Open University, UK</p>
+                </div>
+              </div>
+              <div class="edu-entry">
+                <span class="edu-year">2006</span>
+                <div class="edu-details">
+                  <p class="edu-title">Bachelor of Science in Economics</p>
+                  <p class="edu-credential">NFQ Level 8</p>
+                  <p class="edu-institution">Santa Clara University, CA, USA</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="edu-sidebar">
+              <div class="edu-sidebar-block">
+                <h4 class="edu-sidebar-heading">Languages</h4>
+                <ul class="edu-lang-list">
+                  <li>
+                    <span class="lang-name">English</span
+                    ><span class="tag --lang">Native</span>
+                  </li>
+                  <li>
+                    <span class="lang-name">French</span
+                    ><span class="tag --lang">Native</span>
+                  </li>
+                  <li>
+                    <span class="lang-name">Spanish</span
+                    ><span class="tag --lang">Intermediate</span>
+                  </li>
+                  <li>
+                    <span class="lang-name">Mandarin</span
+                    ><span class="tag --lang">Intermediate</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="edu-sidebar-block">
+                <h4 class="edu-sidebar-heading">Certifications</h4>
+                <ul class="edu-cert-list">
+                  <li>Prince2</li>
+                  <li>Certified Bicycle Mechanic</li>
+                  <li>IB DP Economics Cat 2</li>
+                  <li>IB DP Business Cat 1</li>
+                </ul>
+              </div>
+              <div class="edu-sidebar-block">
+                <h4 class="edu-sidebar-heading">Design</h4>
+                <ul class="edu-cert-list">
+                  <li>UI/UX Design</li>
+                  <li>Wireframing &amp; Prototyping</li>
+                  <li>Figma</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact-section">
+        <div class="content contact-content">
+          <h2>Get in touch</h2>
+          <p class="contact-intro">
+            Have a project in mind or just want to chat? Send me a message and
+            I'll get back to you.
+          </p>
+
+          <form
+            class="contact-form"
+            action="https://formspree.io/f/mrerbglz"
+            method="POST">
+            <!-- Honeypot — hidden from humans, traps bots -->
+            <div class="form-honeypot" aria-hidden="true">
+              <input
+                type="text"
+                name="_gotcha"
+                tabindex="-1"
+                autocomplete="off" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name" class="form-label">Name</label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  class="form-input"
+                  required
+                  autocomplete="name"
+                  placeholder="Your name" />
+              </div>
+              <div class="form-group">
+                <label for="contact-email" class="form-label">Email</label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  class="form-input"
+                  required
+                  autocomplete="email"
+                  placeholder="you@example.com" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-phone" class="form-label">
+                Phone
+                <span class="form-optional">(optional)</span>
+              </label>
+              <input
+                type="tel"
+                id="contact-phone"
+                name="phone"
+                class="form-input"
+                autocomplete="tel"
+                placeholder="+1 234 567 8900" />
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message" class="form-label">Message</label>
+              <textarea
+                id="contact-message"
+                name="message"
+                class="form-input form-textarea"
+                required
+                rows="5"
+                placeholder="What's on your mind?"></textarea>
+            </div>
+
+            <button type="submit" class="button">Send</button>
+            <p class="form-status" aria-live="polite" hidden></p>
+          </form>
+        </div>
+      </section>
     </main>
 
     <footer>
-      <p>&copy; 2026 Kevin McCarthy. All rights reserved.</p>
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img
+              src="assets/kem-logo-no-bg-light.png"
+              alt="Kevin McCarthy logo"
+              class="footer-logo" />
+            <p class="footer-tagline">
+              A Full Stack Developer with a background in Economics and
+              Education. Building thoughtful digital experiences from the ground
+              up.
+            </p>
+          </div>
+
+          <div class="footer-links-group">
+            <div class="footer-links-col">
+              <p class="footer-col-heading">Projects</p>
+              <ul class="footer-links-list">
+                <li>
+                  <a href="https://cephadex.com" target="_blank">Cephadex</a>
+                </li>
+                <li>
+                  <a
+                    href="https://mccarthykev.dev/space-portfolio"
+                    target="_blank"
+                    >Space Portfolio</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://mccarthykev.dev/space-portfolio"
+                    target="_blank"
+                    >Space Portfolio</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://saganaut.github.io/Chair-the-Fed/"
+                    target="_blank"
+                    >Chair the fed</a
+                  >
+                </li>
+                <li>
+                  <a href="https://SwiftSwatch.com" target="_blank"
+                    >SwiftSwatch</a
+                  >
+                </li>
+                <li>
+                  <a href="https://cognaite.com" target="_blank">Cognaite</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer-links-col">
+              <p class="footer-col-heading">Connect</p>
+              <ul class="footer-links-list">
+                <li>
+                  <a href="https://github.com/Saganaut" target="_blank"
+                    >GitHub</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/kevin-ed-mccarthy/"
+                    target="_blank"
+                    >LinkedIn</a
+                  >
+                </li>
+                <li>
+                  <a href="https://blog.cognaite.com" target="_blank">
+                    Personal Blog</a
+                  >
+                </li>
+                <li>
+                  <a href="mailto:zen.white3980@eagereverest.com">Email Me</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>Kevin McCarthy &copy; 2026. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <script>
@@ -733,35 +929,15 @@
         tab.addEventListener("click", () => switchTab(tab.dataset.tab)),
       );
 
-      // ── Carousel ──────────────────────────────────────────────────
-      let carouselNavigate = null; // exposed for keyboard handler below
-
+      // ── Projects list ──────────────────────────────────────────────
       (function () {
-        const CLONE_COUNT = 3;
-        const REAL_COUNT = PROJECTS.length;
+        const list = document.getElementById("projects-list");
 
-        const viewport = document.getElementById("carousel-viewport");
-        const track = document.getElementById("carousel-track");
-        const btnPrev = document.getElementById("carousel-prev");
-        const btnNext = document.getElementById("carousel-next");
-
-        const ordered = [
-          ...PROJECTS.slice(-CLONE_COUNT),
-          ...PROJECTS,
-          ...PROJECTS.slice(0, CLONE_COUNT),
-        ];
-
-        let trackPos = CLONE_COUNT;
-        let isAnimating = false;
-
-        function cw() {
-          return viewport.offsetWidth / 3;
-        }
-
-        function createCard(project) {
+        PROJECTS.forEach((project, index) => {
           const el = document.createElement("div");
-          el.className = "project-card";
-          el.style.width = cw() + "px";
+          const isReversed = index % 2 === 0;
+          el.className =
+            "project-row" + (isReversed ? " project-row--reversed" : "");
           el.setAttribute("role", "button");
           el.setAttribute("tabindex", "0");
           el.setAttribute(
@@ -772,16 +948,16 @@
             .map((t) => `<span class="tag card-tag">${t}</span>`)
             .join("");
           el.innerHTML = `
-            <div class="project-card-inner">
-              <div class="project-card-image-wrap">
-                <img class="project-card-image" src="${project.image}" alt="" />
+            <div class="project-row-identity">
+              <div class="project-row-image-wrap">
+                <img class="project-row-image" src="${project.image}" alt="" />
               </div>
-              <div class="project-card-body">
-                <p class="project-card-name">${project.name}</p>
-                <p class="project-card-subtitle">${project.subtitle}</p>
-                <p class="project-card-desc">${project.description}</p>
-                <div class="project-card-tags">${tagsHtml}</div>
-              </div>
+              <p class="project-row-name">${project.name}</p>
+              <p class="project-row-subtitle">${project.subtitle}</p>
+            </div>
+            <div class="project-row-body">
+              <p class="project-row-desc">${project.description}</p>
+              <div class="project-row-tags">${tagsHtml}</div>
             </div>`;
           el.addEventListener("click", () => openModal(project, el));
           el.addEventListener("keydown", (e) => {
@@ -790,55 +966,88 @@
               openModal(project, el);
             }
           });
-          return el;
-        }
+          list.appendChild(el);
+        });
+      })();
 
-        function setPosition(pos, animate) {
-          track.style.transition = animate ? "transform 0.4s ease" : "none";
-          track.style.transform = `translateX(${-pos * cw()}px)`;
-        }
+      // ── Contact form — AJAX submit (prevent Formspree redirect) ───────
+      (function () {
+        const form = document.querySelector(".contact-form");
+        const status = form.querySelector(".form-status");
+        const btn = form.querySelector("[type=submit]");
 
-        function navigate(dir) {
-          if (isAnimating) return;
-          isAnimating = true;
-          trackPos += dir;
-          setPosition(trackPos, true);
+        form.addEventListener("submit", async (e) => {
+          e.preventDefault();
+          btn.disabled = true;
+          btn.textContent = "Sending…";
+          status.hidden = true;
+          status.className = "form-status";
 
-          function onEnd() {
-            track.removeEventListener("transitionend", onEnd);
-            if (trackPos >= REAL_COUNT + CLONE_COUNT) {
-              trackPos -= REAL_COUNT;
-              setPosition(trackPos, false);
-            } else if (trackPos < CLONE_COUNT) {
-              trackPos += REAL_COUNT;
-              setPosition(trackPos, false);
+          try {
+            const res = await fetch(form.action, {
+              method: "POST",
+              headers: { Accept: "application/json" },
+              body: new FormData(form),
+            });
+
+            if (res.ok) {
+              status.textContent = "Message sent — I'll be in touch soon.";
+              status.classList.add("form-status--ok");
+              form.reset();
+            } else {
+              const data = await res.json().catch(() => ({}));
+              status.textContent =
+                data?.errors?.map((err) => err.message).join(", ") ||
+                "Something went wrong. Please try again.";
+              status.classList.add("form-status--err");
             }
-            isAnimating = false;
+          } catch (_) {
+            status.textContent =
+              "Could not send — check your connection and try again.";
+            status.classList.add("form-status--err");
+          } finally {
+            status.hidden = false;
+            btn.disabled = false;
+            btn.textContent = "Send";
           }
-          track.addEventListener("transitionend", onEnd);
-        }
+        });
+      })();
 
-        function syncWidths() {
-          const w = cw();
-          Array.from(track.children).forEach((c) => {
-            c.style.width = w + "px";
-          });
-          setPosition(trackPos, false);
-        }
+      // ── Hamburger nav ─────────────────────────────────────────────
+      (function () {
+        const hamburger = document.getElementById("nav-hamburger");
+        const navLinks = document.getElementById("nav-links");
 
-        ordered.forEach((p) => track.appendChild(createCard(p)));
-        setPosition(trackPos, false);
-
-        btnPrev.addEventListener("click", () => navigate(-1));
-        btnNext.addEventListener("click", () => navigate(1));
-
-        let resizeTimer;
-        window.addEventListener("resize", () => {
-          clearTimeout(resizeTimer);
-          resizeTimer = setTimeout(syncWidths, 100);
+        hamburger.addEventListener("click", () => {
+          const isOpen = navLinks.classList.toggle("is-open");
+          hamburger.setAttribute("aria-expanded", isOpen);
+          hamburger.setAttribute(
+            "aria-label",
+            isOpen ? "Close navigation menu" : "Open navigation menu",
+          );
         });
 
-        carouselNavigate = navigate; // expose for global keyboard handler
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navLinks.classList.remove("is-open");
+            hamburger.setAttribute("aria-expanded", "false");
+            hamburger.setAttribute("aria-label", "Open navigation menu");
+          });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+          if (
+            navLinks.classList.contains("is-open") &&
+            !navLinks.contains(e.target) &&
+            !hamburger.contains(e.target)
+          ) {
+            navLinks.classList.remove("is-open");
+            hamburger.setAttribute("aria-expanded", "false");
+            hamburger.setAttribute("aria-label", "Open navigation menu");
+          }
+        });
       })();
 
       // ── Global keyboard handler ────────────────────────────────────
@@ -856,19 +1065,6 @@
           }
           if (e.key === "Escape") closeModal();
           // Tab is handled by the focus-trap listener on the modal element
-        } else {
-          // Navigate the carousel when focus is anywhere in the projects section
-          const section = document.getElementById("projects-section");
-          if (section && section.contains(document.activeElement)) {
-            if (e.key === "ArrowLeft") {
-              e.preventDefault();
-              carouselNavigate(-1);
-            }
-            if (e.key === "ArrowRight") {
-              e.preventDefault();
-              carouselNavigate(1);
-            }
-          }
         }
       });
     </script>
