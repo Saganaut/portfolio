@@ -236,6 +236,19 @@ body > header > nav {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    color: var(--color-primary-light);
+
+    a {
+      transition: color 200ms ease-in-out;
+
+      &.active {
+        color: #fff;
+      }
+    }
+  }
+
+  .nav-links:has(.active) a:not(.active) {
+    color: var(--color-primary-light);
   }
 }
 
@@ -482,15 +495,21 @@ section {
   overflow: hidden;
   cursor: pointer;
   gap: 14px;
-
-  &:hover {
-    box-shadow: 0 8px 32px oklch(43% 0.07 211deg / 22%);
-  }
+  opacity: 0.8;
+  transition: opacity 300ms ease-in-out;
 
   &:focus-visible {
     outline: 2px solid var(--color-secondary);
     outline-offset: 2px;
   }
+}
+
+.projects-list:has(.project-row:hover) .project-row:not(:hover) {
+  opacity: 0.2;
+}
+
+.projects-list:has(.project-row:hover) .project-row:has(:hover) {
+  opacity: 1;
 }
 
 .project-row-identity {
@@ -676,11 +695,21 @@ section {
   grid-template-columns: 96px 1fr;
   gap: 20px;
   padding: 20px 0;
-  border-bottom: 1px solid oklch(70% 0.19 43deg / 20%);
+  border-bottom: 1px solid var(--color-primary-dark);
+  opacity: 0.8;
+  transition: opacity 300ms ease-in-out;
 
   &:first-child {
-    border-top: 1px solid oklch(70% 0.19 43deg / 20%);
+    border-top: 1px solid var(--color-primary-dark);
   }
+}
+
+.edu-timeline:has(.edu-entry:hover) .edu-entry:not(:hover) {
+  opacity: 0.2;
+}
+
+.edu-timeline:has(.edu-entry:hover) .edu-entry:has(:hover) {
+  opacity: 1;
 }
 
 .edu-year {
@@ -799,10 +828,20 @@ section {
   gap: 24px;
   padding: 24px 0;
   border-bottom: 1px solid oklch(70% 0.19 43deg / 20%);
+  opacity: 0.8;
+  transition: opacity 300ms ease-in-out;
 
   &:first-child {
     border-top: 1px solid oklch(70% 0.19 43deg / 20%);
   }
+}
+
+.resume-timeline:has(.resume-entry:hover) .resume-entry:not(:hover) {
+  opacity: 0.2;
+}
+
+.resume-timeline:has(.resume-entry:hover) .resume-entry:has(:hover) {
+  opacity: 1;
 }
 
 .resume-meta {

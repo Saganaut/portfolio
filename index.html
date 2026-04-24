@@ -66,7 +66,7 @@
     <link rel="preload" as="image" href="assets/images/hero-background.webp" />
   </head>
   <body>
-    <header>
+    <header id="header-section">
       <nav>
         <div>
           <img
@@ -200,22 +200,22 @@
                   <span class="meta-label">Link</span>
                   <a
                     id="modal-link"
-                    class="meta-value slide-underline"
+                    class="meta-value"
                     href="#"
                     target="_blank"
                     rel="noopener"
-                    >Access here</a
+                    ><span class="slide-underline">Access here</span></a
                   >
                 </div>
                 <div class="modal-meta-row">
                   <span class="meta-label">Repo</span>
                   <a
                     id="modal-repo"
-                    class="meta-value slide-underline"
+                    class="meta-value"
                     href="#"
                     target="_blank"
                     rel="noopener"
-                    >Project Repo</a
+                    ><span class="slide-underline">Project Repo</span></a
                   >
                 </div>
               </div>
@@ -399,7 +399,7 @@
                   <p class="edu-title">
                     CS50x: Introduction to Computer Science
                   </p>
-                  <p class="edu-institution">Harvard University — edX</p>
+                  <p class="edu-institution">Edx / Harvard University</p>
                 </div>
               </div>
               <div class="edu-entry">
@@ -552,7 +552,7 @@
       </section>
     </main>
 
-    <footer>
+    <footer class="footer-section">
       <div class="footer-inner">
         <div class="footer-grid">
           <div class="footer-brand">
@@ -1119,6 +1119,45 @@
           // Tab is handled by the focus-trap listener on the modal element
         }
       });
+    </script>
+    <script>
+      (function () {
+        const sectionIds = [
+          "projects-section",
+          "resume-section",
+          "education-section",
+          "contact-section",
+        ];
+        const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+        const visible = new Set();
+
+        function updateActive() {
+          const activeId = sectionIds.find((id) => visible.has(id)) ?? null;
+          navLinks.forEach((link) => {
+            link.classList.toggle(
+              "active",
+              link.getAttribute("href") === "#" + activeId,
+            );
+          });
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              entry.isIntersecting
+                ? visible.add(entry.target.id)
+                : visible.delete(entry.target.id);
+            });
+            updateActive();
+          },
+          { threshold: 0.3 },
+        );
+
+        sectionIds.forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) observer.observe(el);
+        });
+      })();
     </script>
   </body>
 </html>
