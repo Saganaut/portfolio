@@ -453,17 +453,15 @@ section {
     border-radius: 999px;
     text-shadow: none;
   }
+
+  &.--projects {
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background-color: var(--color-primary-subtle);
+    color: var(--color-primary);
+  }
 }
-
-/* .project-card-tags .tag {
-  font-size: var(--font-size-xs);
-
-  color: var(--color-primary);
-  border: 1.5px solid var(--color-primary);
-  border-radius: 999px;
-  padding: 2px 9px;
-  white-space: nowrap;
-} */
 
 .content {
   max-width: 1400px;
@@ -533,10 +531,10 @@ section {
   gap: var(--spacing-xl);
 }
 
-.projects-list {
+#projects-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
 }
 
 .project-row {
@@ -546,6 +544,7 @@ section {
   border-radius: var(--border-radius);
   overflow: hidden;
   cursor: pointer;
+  gap: 14px;
 
   &:hover {
     box-shadow: 0 8px 32px oklch(43% 0.07 211deg / 22%);
@@ -560,11 +559,50 @@ section {
 .project-row-identity {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 40px 32px;
+  align-items: start;
+  justify-content: start;
+  gap: 8px;
   text-align: center;
+
+  .top-row {
+    width: 100%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 40px 1fr;
+    gap: 8px;
+
+    .project-logo-wrap {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .project-logo {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+    }
+
+    .project-name {
+      font-size: var(--font-size-2xl);
+      font-weight: 700;
+      color: var(--color-text-dark);
+      display: flex;
+    }
+  }
+
+  .bottom-row {
+    .project-row-subtitle {
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      color: var(--color-primary-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
 }
 
 .project-row-body {
@@ -572,56 +610,47 @@ section {
   flex-direction: column;
   justify-content: center;
   gap: 12px;
-  padding: 40px 36px;
+
+  .top-row {
+    .project-row-desc {
+      font-size: var(--font-size-base);
+    }
+  }
+
+  .bottom-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+
+    .project-screenshot-wrap {
+      max-width: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .project-screenshot {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        display: block;
+        min-width: 160px;
+      }
+    }
+
+    .project-row-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+  }
 }
 
-.project-row--reversed .project-row-identity {
-  order: 2;
-}
-
-.project-row--reversed .project-row-body {
-  order: 1;
-  border-left: none;
-  border-right: 1px solid oklch(70% 0.19 43deg / 35%);
-}
-
-.project-row-image-wrap {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.project-row-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-.project-row-name {
-  font-size: var(--font-size-xl);
-  font-weight: 700;
-  color: var(--color-text-dark);
-}
-
-.project-row-subtitle {
-  font-size: var(--font-size-xs);
-  font-weight: 600;
-  color: var(--color-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.project-row-desc {
-  font-size: var(--font-size-base);
-}
-
-.project-row-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
+@media (width <= 915px) {
+  .project-row-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+  }
 }
 
 /* ── Modal ────────────────────────────────────────────────────── */
@@ -1310,10 +1339,7 @@ section {
     grid-template-columns: 1fr;
   }
 
-  .project-row-identity,
-  .project-row--reversed .project-row-identity {
-    order: 1;
-    padding: 20px 20px 18px;
+  .project-row-identity {
     flex-direction: row;
     align-items: center;
     text-align: left;
@@ -1326,8 +1352,6 @@ section {
 
   .project-row-body,
   .project-row--reversed .project-row-body {
-    order: 2;
-    padding: 18px 20px 22px;
     border-left: none;
     border-right: none;
   }
