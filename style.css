@@ -9,20 +9,25 @@
    https://ricostacruz.com/rscss/
    Color space: oklch | Units: rem 
    ============================================================ */
-/* Generated CSS Variables from Design: Untitled */
-
-/* Colors */
 
 :root {
   /* Colors */
 
-  --color-primary: oklch(0.6286 0.1732 252.54);
+  /* Used colors:
+
+  - Color primary
+  - Color primary light
+  - Color text
+  - Color text light
+  - Color secondary
+  */
+
+  --color-primary: oklch(21.839% 0.0612 249.645deg);
   --color-primary-light: oklch(from var(--color-primary) 75% c h);
   --color-primary-dark: oklch(from var(--color-primary) 35% c h);
   --color-primary-subtle: oklch(from var(--color-primary) 93% calc(c / 4) h);
   --color-primary-muted: oklch(from var(--color-primary) l calc(c * 0.5) h);
-
-  --color-secondary: oklch(0.9208 0.0301 307.11);
+  --color-secondary: oklch(92.1% 0.0301 307.11deg);
   --color-secondary-light: oklch(from var(--color-secondary) 97% calc(c / 2) h);
   --color-secondary-dark: oklch(
     from var(--color-secondary) 68% calc(c * 2.5) h
@@ -31,19 +36,16 @@
     from var(--color-secondary) 97% calc(c / 4) h
   );
   --color-secondary-muted: oklch(from var(--color-secondary) l calc(c * 0.5) h);
-
-  --color-accent: oklch(0.6065 0.0751 181.5);
+  --color-accent: oklch(60.65% 0.0751 181.5deg);
   --color-accent-light: oklch(from var(--color-accent) 75% c h);
   --color-accent-dark: oklch(from var(--color-accent) 47% c h);
   --color-accent-subtle: oklch(from var(--color-accent) 93% calc(c / 4) h);
   --color-accent-muted: oklch(from var(--color-accent) l calc(c * 0.5) h);
-
-  --color-text: oklch(0.6213 0.1604 25.99);
-  --color-text-light: oklch(0.7352 0.1604 25.99);
+  --color-text: oklch(53.369% 0.1147 25.041deg);
+  --color-text-light: oklch(73.52% 0.1604 25.99deg);
 
   /* Typography */
-
-  --font-family: IBM Plex Mono, monospace;
+  --font-family: "IBM Plex Mono", monospace;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -80,7 +82,6 @@ html {
 }
 
 body {
-  margin: 0;
   font-family: var(--font-family);
   color: var(--color-secondary);
   background: var(--color-primary);
@@ -90,6 +91,7 @@ body {
   min-height: 100dvh;
   margin: 0;
 }
+
 button {
   appearance: none;
   border: none;
@@ -107,10 +109,12 @@ button {
 button:active {
   background-color: transparent;
 }
+
 button::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
+
 img {
   display: block;
   max-width: 100%;
@@ -118,40 +122,19 @@ img {
 
 a {
   color: inherit;
-  text-decoration: none;
-
   position: relative;
   display: inline-block;
   overflow: hidden;
   text-decoration: none;
-  padding-bottom: 1px;
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-primary-light);
-    opacity: 0;
-    transform: translate3d(-100%, 0, 0);
-    transition:
-      opacity 50ms,
-      transform 0.3s ease;
-  }
-
-  &:hover::after {
-    opacity: 0.6;
-    transform: translate3d(0, 0, 0);
-  }
 }
+
 h1,
 h2,
 h3,
 h4,
 h5,
 p {
-  margin: 0px;
+  margin: 0;
 }
 
 h1 {
@@ -159,28 +142,16 @@ h1 {
   font-weight: 700;
   color: var(--color-text-light);
 }
+
 h2 {
   font-size: 48px;
   font-weight: 500;
 }
-h3 {
-}
-h4 {
-}
-h5 {
-}
+
 p {
-  color: var(--color-secondary);
+  color: #fff;
 }
 
-main,
-header,
-footer {
-  /* max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%; */
-}
 header {
   position: fixed;
   top: 0;
@@ -196,9 +167,85 @@ header {
   padding-right: 20px;
   z-index: 300;
 }
+
 footer {
   background-color: var(--color-primary);
-  border-top: 1px solid oklch(62.449% 0.08479 230.263 / 0.2);
+  border-top: 1px solid oklch(62.449% 0.0848 230.263deg / 20%);
+}
+
+.slide-underline {
+  color: inherit;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  text-decoration: none;
+  padding-bottom: 1px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text-light);
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+    transition:
+      opacity 50ms,
+      transform 0.3s ease;
+  }
+
+  &:hover::after {
+    opacity: 0.6;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/** HERO SECTION **/
+#hero-section {
+  background-image:
+    linear-gradient(
+      var(--color-primary) 0%,
+      color-mix(in oklch, var(--color-primary), transparent 15%) 50%,
+      var(--color-primary) 100%
+    ),
+    url("assets/images/hero-background.webp");
+
+  .content {
+    display: grid;
+    grid-template-columns: 1.8fr 1.2fr;
+  }
+
+  .content .copy {
+    padding-top: 20dvh;
+    padding-bottom: 100px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content .copy h1 {
+    margin-bottom: 20px;
+  }
+
+  .content .copy a::after {
+    content: none;
+  }
+
+  .content .copy .tagline {
+    font-weight: 500;
+    margin-bottom: 10px;
+
+    b {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+  }
+
+  .content .copy .description {
+    margin-bottom: 10px;
+  }
 }
 
 .footer-inner {
@@ -212,7 +259,7 @@ footer {
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   padding-bottom: 48px;
-  border-bottom: 1px solid oklch(70% 0.19 43 / 0.15);
+  border-bottom: 1px solid oklch(70% 0.19 43deg / 15%);
 }
 
 .footer-brand {
@@ -283,6 +330,7 @@ footer {
     opacity: 0.7;
   }
 }
+
 body > header > nav {
   display: flex;
   align-items: center;
@@ -327,9 +375,11 @@ body > header > nav {
   &[aria-expanded="true"] span:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
   }
+
   &[aria-expanded="true"] span:nth-child(2) {
     opacity: 0;
   }
+
   &[aria-expanded="true"] span:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
   }
@@ -354,18 +404,20 @@ section {
   color: var(--color-secondary);
   border: 2px var(--color-secondary) solid;
   transition: all 0.3s ease-in-out;
+
   &:hover {
     color: var(--color-text-light);
     background-color: transparent;
     border: 2px var(--color-text-light) solid;
   }
+
   &.inverted {
     background-color: transparent;
     color: var(--orange);
+
     &:hover {
       background-color: var(--color-primary);
       color: var(--color-primary);
-      /* border: 2px var(--orange) solid; */
     }
   }
 }
@@ -383,14 +435,17 @@ section {
   text-transform: uppercase;
   text-shadow: none;
   font-weight: 700;
+
   &.--dev {
     background-color: var(--color-secondary);
     color: var(--color-primary);
   }
+
   &.--edu {
     background-color: var(--blue);
     color: var(--color-primary);
   }
+
   &.--lang {
     font-size: var(--font-size-xs);
     font-weight: 600;
@@ -414,7 +469,6 @@ section {
   max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
   height: 100%;
   width: 100%;
   min-height: 85dvh;
@@ -430,7 +484,6 @@ section {
   border-radius: 999px;
   border: 1.5px solid var(--color-text);
   background-color: var(--color-primary-muted);
-
   font-size: var(--font-size-xs);
   font-weight: 700;
   text-transform: uppercase;
@@ -449,49 +502,15 @@ section {
 
 @keyframes hire-pulse {
   0% {
-    box-shadow: 0 0 0 0 oklch(70% 0.16 133 / 0.55);
+    box-shadow: 0 0 0 0 oklch(70% 0.16 133deg / 55%);
   }
+
   60% {
-    box-shadow: 0 0 0 7px oklch(70% 0.16 133 / 0);
+    box-shadow: 0 0 0 7px oklch(70% 0.16 133deg / 0%);
   }
+
   100% {
-    box-shadow: 0 0 0 0 oklch(70% 0.16 133 / 0);
-  }
-}
-
-#hero-section {
-  background-image:
-    linear-gradient(
-      var(--color-primary) 0%,
-      color-mix(in oklch, var(--color-primary), transparent 15%) 50%,
-      var(--color-primary) 100%
-    ),
-    url("assets/images/hero-background.webp");
-
-  .content {
-    display: grid;
-    grid-template-columns: 1.8fr 1.2fr;
-  }
-  .content .copy {
-    padding-top: 20dvh;
-    padding-bottom: 100px;
-
-    gap: 20px;
-    display: flex;
-    flex-direction: column;
-  }
-  .content .copy h1 {
-    margin-bottom: 20px;
-  }
-  .content .copy a::after {
-    content: none;
-  }
-  .content .copy .tagline {
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-  .content .copy .description {
-    margin-bottom: 10px;
+    box-shadow: 0 0 0 0 oklch(70% 0.16 133deg / 0%);
   }
 }
 
@@ -522,18 +541,14 @@ section {
 
 .project-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  background-color: var(--color-primary-light);
-  backdrop-filter: blur(4px);
+  grid-template-columns: 1fr 3fr;
+  background-color: var(--color-primary-muted) / 50%;
   border-radius: var(--border-radius);
-  border-top: 3px solid var(--color-primary);
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 2px 10px oklch(43% 0.07 211 / 0.1);
-  transition: box-shadow 0.25s ease;
 
   &:hover {
-    box-shadow: 0 8px 32px oklch(43% 0.07 211 / 0.22);
+    box-shadow: 0 8px 32px oklch(43% 0.07 211deg / 22%);
   }
 
   &:focus-visible {
@@ -558,7 +573,6 @@ section {
   justify-content: center;
   gap: 12px;
   padding: 40px 36px;
-  border-left: 1px solid oklch(70% 0.19 43 / 0.35);
 }
 
 .project-row--reversed .project-row-identity {
@@ -568,7 +582,7 @@ section {
 .project-row--reversed .project-row-body {
   order: 1;
   border-left: none;
-  border-right: 1px solid oklch(70% 0.19 43 / 0.35);
+  border-right: 1px solid oklch(70% 0.19 43deg / 35%);
 }
 
 .project-row-image-wrap {
@@ -614,7 +628,7 @@ section {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: oklch(43% 0.07 211 / 0.55);
+  background: oklch(43% 0.07 211deg / 55%);
   backdrop-filter: blur(6px);
   z-index: 1000;
   display: flex;
@@ -670,7 +684,7 @@ section {
     color 0.2s;
 
   & svg {
-    fill: currentColor;
+    fill: currentcolor;
   }
 
   &:hover {
@@ -702,7 +716,7 @@ section {
     color 0.2s;
 
   & svg {
-    fill: currentColor;
+    fill: currentcolor;
   }
 
   &:hover {
@@ -721,7 +735,7 @@ section {
   width: 100%;
   height: 170px;
   object-fit: contain;
-  background-color: oklch(50% 0.1 245 / 0.08);
+  background-color: oklch(50% 0.1 245deg / 8%);
   border-radius: var(--border-radius);
   padding: 16px;
 }
@@ -772,7 +786,7 @@ section {
   display: flex;
   gap: 6px;
   padding-bottom: 12px;
-  border-bottom: 2px solid oklch(70% 0.19 43 / 0.3);
+  border-bottom: 2px solid oklch(70% 0.19 43deg / 30%);
   margin-bottom: 16px;
 }
 
@@ -787,7 +801,7 @@ section {
     color 0.18s;
 
   &:hover {
-    background-color: oklch(70% 0.16 133 / 0.18);
+    background-color: oklch(70% 0.16 133deg / 18%);
   }
 
   &.active {
@@ -831,11 +845,9 @@ section {
     ),
     url("assets/images/background-background.webp");
 }
+
 #education-section {
   margin-bottom: -2px; /* Dealing with mysterious line rendering issue */
-  /* text-shadow:
-    0 0 5px oklch(1 0 0),
-    1px 1px 2px oklch(0.2 0.01 80 / 0.1); */
   background-image:
     linear-gradient(
       var(--color-primary) 0%,
@@ -868,15 +880,21 @@ section {
   gap: 0;
 }
 
+.edu-title {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
 .edu-entry {
   display: grid;
   grid-template-columns: 96px 1fr;
   gap: 20px;
   padding: 20px 0;
-  border-bottom: 1px solid oklch(70% 0.19 43 / 0.2);
+  border-bottom: 1px solid oklch(70% 0.19 43deg / 20%);
 
   &:first-child {
-    border-top: 1px solid oklch(70% 0.19 43 / 0.2);
+    border-top: 1px solid oklch(70% 0.19 43deg / 20%);
   }
 }
 
@@ -901,12 +919,6 @@ section {
   display: flex;
   flex-direction: column;
   gap: 3px;
-}
-
-.edu-title {
-  font-size: var(--font-size-base);
-  font-weight: 600;
-  color: var(--color-primary);
 }
 
 .edu-credential {
@@ -960,9 +972,6 @@ section {
   }
 }
 
-.lang-name {
-}
-
 .edu-cert-list {
   list-style: none;
   padding: 0;
@@ -985,10 +994,8 @@ section {
     }
   }
 }
+
 #resume-section {
-  /* text-shadow:
-    0 0 5px oklch(1 0 0),
-    1px 1px 2px oklch(0.2 0.01 80 / 0.1); */
   background-image:
     linear-gradient(
       var(--color-primary) 0%,
@@ -1018,9 +1025,10 @@ section {
   grid-template-columns: 180px 1fr;
   gap: 24px;
   padding: 24px 0;
-  border-bottom: 1px solid oklch(70% 0.19 43 / 0.2);
+  border-bottom: 1px solid oklch(70% 0.19 43deg / 20%);
+
   &:first-child {
-    border-top: 1px solid oklch(70% 0.19 43 / 0.2);
+    border-top: 1px solid oklch(70% 0.19 43deg / 20%);
   }
 }
 
@@ -1069,7 +1077,6 @@ section {
 
   & li {
     font-size: var(--font-size-sm);
-    /* color: var(--color-text); */
     align-items: flex-start;
     gap: 8px;
     line-height: 1.55;
@@ -1169,7 +1176,7 @@ section {
   font-family: var(--font-family);
   font-size: var(--font-size-sm);
   color: var(--color-text);
-  border: 2px solid oklch(70% 0.19 43 / 0.35);
+  border: 2px solid oklch(70% 0.19 43deg / 35%);
   border-radius: var(--border-radius);
   padding: 10px 14px;
   width: 100%;
@@ -1184,7 +1191,7 @@ section {
   }
 
   &:hover {
-    border-color: oklch(70% 0.19 43 / 0.6);
+    border-color: oklch(70% 0.19 43deg / 60%);
   }
 
   &:focus,
@@ -1212,25 +1219,26 @@ section {
 
   &.form-status--ok {
     color: var(--color-secondary);
-    background-color: oklch(70% 0.16 133 / 0.1);
-    border: 1px solid oklch(70% 0.16 133 / 0.35);
+    background-color: oklch(70% 0.16 133deg / 10%);
+    border: 1px solid oklch(70% 0.16 133deg / 35%);
   }
 
   &.form-status--err {
     color: var(--color-primary);
-    background-color: oklch(70% 0.19 43 / 0.08);
-    border: 1px solid oklch(70% 0.19 43 / 0.3);
+    background-color: oklch(70% 0.19 43deg / 8%);
+    border: 1px solid oklch(70% 0.19 43deg / 3%);
   }
 }
 
 /* ================================================================
    RESPONSIVE  —  breakpoint: 915px
    ================================================================ */
-@media (max-width: 915px) {
+@media (width <= 915px) {
   /* ── Typography ─────────────────────────────────────────────── */
   h1 {
     font-size: 2.5rem;
   }
+
   h2 {
     font-size: 2rem;
   }
@@ -1248,15 +1256,14 @@ section {
 
   body > header > nav .nav-links {
     display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
+    flex-flow: column nowrap;
     gap: 0;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     background: var(--color-primary);
-    border-bottom: 1px solid oklch(70% 0.19 43 / 0.2);
+    border-bottom: 1px solid oklch(70% 0.19 43deg / 20%);
     padding: 0 20px;
     max-height: 0;
     overflow: hidden;
@@ -1275,7 +1282,7 @@ section {
     & a {
       padding: 10px 0;
       font-size: var(--font-size-base);
-      border-bottom: 1px solid oklch(70% 0.19 43 / 0.1);
+      border-bottom: 1px solid oklch(70% 0.19 43deg / 10%);
 
       &:last-child {
         border-bottom: none;
@@ -1314,7 +1321,7 @@ section {
     gap: 16px;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid oklch(70% 0.19 43 / 0.35);
+    border-bottom: 1px solid oklch(70% 0.19 43deg / 35%);
   }
 
   .project-row-body,
@@ -1391,8 +1398,7 @@ section {
   }
 
   .resume-meta {
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     align-items: center;
     gap: 8px;
     padding-top: 0;

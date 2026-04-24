@@ -72,12 +72,12 @@
           <img src="assets/kem-logo-no-bg-dark-xs.png" alt="Kev Dev Logo" />
         </div>
         <div class="nav-links" id="nav-links">
-          <a href="#projects-section">Projects</a>
+          <a href="#projects-section" class="slide-underline">Projects</a>
           <!-- <a href="#background-section">Background</a> -->
-          <a href="#resume-section">Experience</a>
-          <a href="#education-section">Education</a>
+          <a href="#resume-section" class="slide-underline">Experience</a>
+          <a href="#education-section" class="slide-underline">Education</a>
 
-          <a href="#contact-section">Contact</a>
+          <a href="#contact-section" class="slide-underline">Contact</a>
         </div>
         <button
           class="nav-hamburger"
@@ -102,8 +102,8 @@
             </div>
             <h1>Kevin McCarthy</h1>
             <p class="tagline">
-              <strong>Full Stack Developer</strong> with a background in
-              <strong>Economics</strong> and <strong>Education</strong>.
+              <b>Full Stack Developer</b> with a background in
+              <b>Economics</b> and <b>Education</b>.
             </p>
             <p class="description">
               I bring five years of full-stack experience and a lifetime of
@@ -279,24 +279,21 @@
                     the ground up.
                   </li>
                   <li>
-                    <strong>Architecture:</strong> Migrated an initial Flask
-                    prototype to a high-performance FastAPI, React, and
-                    PostgreSQL stack to support asynchronous AI processing.
+                    <b>Architecture:</b> Migrated an initial Flask prototype to
+                    a high-performance FastAPI, React, and PostgreSQL stack to
+                    support asynchronous AI processing.
                   </li>
                   <li>
-                    <strong>Real-time:</strong> Developed multiplayer classroom
-                    modules using WebSockets for low-latency, concurrent user
-                    play.
+                    <b>Real-time:</b> Developed multiplayer classroom modules
+                    using WebSockets for low-latency, concurrent user play.
                   </li>
                   <li>
-                    <strong>Infrastructure:</strong> Containerized the platform
-                    with Docker for stateless deployment on a self-managed Linux
-                    VPS.
+                    <b>Infrastructure:</b> Containerized the platform with
+                    Docker for stateless deployment on a self-managed Linux VPS.
                   </li>
                   <li>
-                    <strong>Leadership:</strong> Directed the full project
-                    lifecycle, managing remote freelancers for UI/UX and graphic
-                    design.
+                    <b>Leadership:</b> Directed the full project lifecycle,
+                    managing remote freelancers for UI/UX and graphic design.
                   </li>
                 </ul>
               </div>
@@ -929,9 +926,8 @@
 
         PROJECTS.forEach((project, index) => {
           const el = document.createElement("div");
-          const isReversed = index % 2 === 0;
-          el.className =
-            "project-row" + (isReversed ? " project-row--reversed" : "");
+
+          el.className = "project-row";
           el.setAttribute("role", "button");
           el.setAttribute("tabindex", "0");
           el.setAttribute(
