@@ -168,6 +168,20 @@ header {
   z-index: 300;
 }
 
+li {
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+
+  &::before {
+    content: "▸";
+    color: var(--color-primary-light);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+}
+
 footer {
   background-color: var(--color-primary);
   border-top: 1px solid oklch(62.449% 0.0848 230.263deg / 20%);
@@ -452,7 +466,7 @@ section {
 #projects-list {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 40px;
 }
 
 .project-row {
@@ -509,6 +523,7 @@ section {
       font-weight: 700;
       color: var(--color-text-dark);
       display: flex;
+      text-align: start;
     }
   }
 
@@ -649,7 +664,6 @@ section {
 .edu-title {
   font-size: var(--font-size-base);
   font-weight: 600;
-  color: var(--color-primary);
 }
 
 .edu-entry {
@@ -730,11 +744,13 @@ section {
   flex-direction: column;
   gap: 6px;
 
-  & li {
+  li {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    font-size: var(--font-size-sm);
+
+    &::before {
+      content: none;
+    }
   }
 }
 
@@ -745,27 +761,13 @@ section {
   display: flex;
   flex-direction: column;
   gap: 6px;
-
-  & li {
-    font-size: var(--font-size-sm);
-    color: var(--color-secondary);
-    display: flex;
-    align-items: flex-start;
-    gap: 7px;
-
-    &::before {
-      content: "▸";
-      color: var(--color-primary);
-      flex-shrink: 0;
-    }
-  }
 }
 
 #resume-section {
   background-image:
     linear-gradient(
       var(--color-primary) 0%,
-      color-mix(in oklch, var(--color-primary), transparent 15%) 50%,
+      color-mix(in oklch, var(--color-primary), transparent 7%) 50%,
       var(--color-primary) 100%
     ),
     url("assets/images/professional-background.webp");
@@ -941,8 +943,9 @@ section {
 .form-input {
   font-family: var(--font-family);
   font-size: var(--font-size-sm);
-  color: var(--color-text);
-  border: 2px solid oklch(70% 0.19 43deg / 35%);
+  color: var(--color-primary-light);
+  background-color: var(--color-primary-muted);
+  border: 1px solid var(--color-primary-light);
   border-radius: var(--border-radius);
   padding: 10px 14px;
   width: 100%;
@@ -952,7 +955,7 @@ section {
   transition: border-color 0.2s ease;
 
   &::placeholder {
-    color: var(--color-text);
+    color: var(--color-primary-light);
     opacity: 0.4;
   }
 
@@ -1278,7 +1281,7 @@ section {
   max-height: calc(100dvh - 80px);
   overflow-y: auto;
   position: relative;
-  padding: 36px 32px 32px;
+  padding: 24px;
 }
 
 .modal-header {
@@ -1291,7 +1294,7 @@ section {
 .modal-nav {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .modal-nav-btn {
@@ -1301,7 +1304,7 @@ section {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 2px solid var(--color-primary-light);
+  border: 1px solid var(--color-primary-light);
 
   & svg {
     transition: all 0.2s ease-in-out;
@@ -1333,7 +1336,7 @@ section {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 2px solid var(--color-primary-light);
+  border: 1px solid var(--color-primary-light);
 
   & svg {
     transition: all 0.2s ease-in-out;
@@ -1401,9 +1404,16 @@ section {
 }
 
 .modal-meta-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 10px;
+}
+
+@media (width <= 520px) {
+  .modal-meta-row {
+    grid-template-columns: 1fr 2fr;
+  }
 }
 
 .meta-label {
@@ -1420,8 +1430,8 @@ section {
 
 .modal-description {
   font-size: var(--font-size-base);
-  line-height: 1.6;
   margin-bottom: 24px;
+  min-height: 160px;
 }
 
 .modal-tabs {
@@ -1463,24 +1473,9 @@ section {
   flex-direction: column;
   gap: 8px;
   min-height: 160px;
-
-  & li {
-    font-size: var(--font-size-sm);
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    line-height: 1.5;
-
-    &::before {
-      content: "▸";
-      color: var(--color-primary);
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-  }
 }
 
-@media (width <= 915px) {
+@media (width <= 815px) {
   .modal-dialog {
     padding: 20px 16px 24px;
   }
@@ -1495,8 +1490,9 @@ section {
   }
 
   .modal-col-left {
+    order: 2;
     display: grid;
-    grid-template-columns: 160px 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
     align-items: start;
   }
