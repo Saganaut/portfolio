@@ -187,7 +187,7 @@
           </div>
           <div class="modal-body">
             <div class="modal-col-left">
-              <img id="modal-image" class="modal-image" alt="" />
+              <img id="modal-screenshot" class="modal-screenshot" alt="" />
               <div class="modal-meta">
                 <div class="modal-meta-row">
                   <span class="meta-label">Status</span>
@@ -218,7 +218,12 @@
               </div>
             </div>
             <div class="modal-col-right">
-              <h3 id="modal-title" class="modal-title" tabindex="-1"></h3>
+              <div class="title-row">
+                <div class="modal-logo-wrapper">
+                  <img id="modal-logo" class="modal-logo" src="" />
+                </div>
+                <h3 id="modal-title" class="modal-title" tabindex="-1"></h3>
+              </div>
               <p id="modal-description" class="modal-description"></p>
               <div class="modal-tabs">
                 <button class="modal-tab active" data-tab="tech">Tech</button>
@@ -689,124 +694,134 @@
             "Used in the design of this portfolio",
           ],
         },
-        // {
-        //   id: "cognaite",
-        //   name: "Cognaite",
-        //   subtitle: "Starter template",
-        //   description:
-        //     "A modern full-stack starter template for quickly bootstrapping new web applications.",
-        //   image: "assets/images/starter-logo.svg",
-        //   tags: ["React", "FastAPI", "PostgreSQL", "Docker", "TypeScript"],
-        //   status: "Online",
-        //   link: "https://cognaite.com",
-        //   repo: "#",
-        //   tech: ["React", "FastAPI", "PostgreSQL", "Docker", "TypeScript"],
-        //   features: [
-        //     "Authentication out of the box",
-        //     "Database migrations setup",
-        //     "API scaffolding",
-        //     "Docker-compose dev environment",
-        //   ],
-        //   notes: ["Open source project", "Designed for rapid prototyping"],
-        // },
-        // {
-        //   id: "chair-the-fed",
-        //   name: "Chair the Fed",
-        //   subtitle: "Monetary policy simulator",
-        //   description:
-        //     "An interactive simulator that puts you in the seat of the Federal Reserve chair, managing monetary policy decisions.",
-        //   image: "assets/images/chair-the-fed.webp",
-        //   tags: ["React", "D3.js", "Recharts"],
-        //   status: "Online",
-        //   link: "https://saganaut.github.io/Chair-the-Fed/",
-        //   repo: "https://github.com/saganaut/Chair-the-Fed",
-        //   tech: [
-        //     "React",
-        //     "D3.js for data visualizations",
-        //     "Custom economic model engine",
-        //     "Recharts for charting",
-        //   ],
-        //   features: [
-        //     "Real-time economic indicators",
-        //     "Interest rate controls",
-        //     "Policy outcome simulation",
-        //     "Historical scenario comparisons",
-        //   ],
-        //   notes: [
-        //     "Combines economics background with software development",
-        //     "Useful for teaching monetary policy concepts",
-        //   ],
-        // },
-        // {
-        //   id: "blog",
-        //   name: "Personal Blog",
-        //   subtitle: "Writing & thoughts",
-        //   description:
-        //     "A personal blog covering topics in software development, economics, and education.",
-        //   image: "assets/images/acorn.png",
-        //   tags: ["Static Site", "Markdown", "CDN"],
-        //   status: "Online",
-        //   link: "https://blog.cognaite.com",
-        //   repo: "#",
-        //   tech: [
-        //     "Static site generator",
-        //     "Markdown content",
-        //     "Deployed on CDN",
-        //   ],
-        //   features: [
-        //     "Technical deep-dives",
-        //     "Economics commentary",
-        //     "Project write-ups and retrospectives",
-        //   ],
-        //   notes: ["Updated regularly"],
-        // },
-        // {
-        //   id: "space-portfolio",
-        //   name: "this.SpacePortfolio",
-        //   subtitle: "Previous portfolio site",
-        //   description:
-        //     "A space-themed interactive portfolio with a retro computer terminal aesthetic.",
-        //   image: "assets/images/alien-sidekick-sm.webp",
-        //   tags: ["Vanilla JS", "CSS", "Canvas"],
-        //   status: "Online",
-        //   link: "https://mccarthykev.dev/space-portfolio",
-        //   repo: "#",
-        //   tech: ["Vanilla JavaScript", "CSS animations", "HTML5 Canvas"],
-        //   features: [
-        //     "Animated space background",
-        //     "Terminal-style navigation",
-        //     "Interactive project showcase",
-        //   ],
-        //   notes: [
-        //     "Pure HTML/CSS/JS — zero frameworks",
-        //     "Inspired by retro sci-fi aesthetics",
-        //   ],
-        // },
-        // {
-        //   id: "ai-story-tellers",
-        //   name: "Neverending AI Story",
-        //   subtitle: "Collaborative AI storytelling",
-        //   description:
-        //     "A platform for collaborative AI-assisted storytelling where narratives evolve based on community contributions.",
-        //   image: "assets/images/aistorytellers.webp",
-        //   tags: ["React", "Node.js", "OpenAI", "PostgreSQL"],
-        //   status: "Online",
-        //   link: "#",
-        //   repo: "https://github.com/saganaut/aiechoes",
-        //   tech: [
-        //     "React frontend",
-        //     "Node.js backend",
-        //     "OpenAI API integration",
-        //     "PostgreSQL",
-        //   ],
-        //   features: [
-        //     "AI story continuation",
-        //     "Community voting on story paths",
-        //     "Character creation",
-        //     "Branching narrative structure",
-        //   ],
-        //   notes: ["Explores human-AI creative collaboration"],
-        // },
+        {
+          id: "cognaite",
+          name: "Cognaite",
+          subtitle: "Starter template",
+          description:
+            "A modern full-stack starter template for quickly bootstrapping new web applications.",
+          image: "assets/images/starter-logo.svg",
+          tags: ["React", "FastAPI", "PostgreSQL", "Docker", "TypeScript"],
+          status: "Online",
+          link: "https://cognaite.com",
+          screenshot: "assets/images/screenshots/screenshotPlaceholder.webp",
+
+          repo: "#",
+          tech: ["React", "FastAPI", "PostgreSQL", "Docker", "TypeScript"],
+          features: [
+            "Authentication out of the box",
+            "Database migrations setup",
+            "API scaffolding",
+            "Docker-compose dev environment",
+          ],
+          notes: ["Open source project", "Designed for rapid prototyping"],
+        },
+        {
+          id: "chair-the-fed",
+          name: "Chair the Fed",
+          subtitle: "Monetary policy simulator",
+          description:
+            "An interactive simulator that puts you in the seat of the Federal Reserve chair, managing monetary policy decisions.",
+          image: "assets/images/chair-the-fed.webp",
+          tags: ["React", "D3.js", "Recharts"],
+          status: "Online",
+          link: "https://saganaut.github.io/Chair-the-Fed/",
+          screenshot: "assets/images/screenshots/screenshotPlaceholder.webp",
+
+          repo: "https://github.com/saganaut/Chair-the-Fed",
+          tech: [
+            "React",
+            "D3.js for data visualizations",
+            "Custom economic model engine",
+            "Recharts for charting",
+          ],
+          features: [
+            "Real-time economic indicators",
+            "Interest rate controls",
+            "Policy outcome simulation",
+            "Historical scenario comparisons",
+          ],
+          notes: [
+            "Combines economics background with software development",
+            "Useful for teaching monetary policy concepts",
+          ],
+        },
+        {
+          id: "blog",
+          name: "Personal Blog",
+          subtitle: "Writing & thoughts",
+          description:
+            "A personal blog covering topics in software development, economics, and education.",
+          image: "assets/images/acorn.png",
+          tags: ["Static Site", "Markdown", "CDN"],
+          status: "Online",
+          link: "https://blog.cognaite.com",
+          screenshot: "assets/images/screenshots/screenshotPlaceholder.webp",
+
+          repo: "#",
+          tech: [
+            "Static site generator",
+            "Markdown content",
+            "Deployed on CDN",
+          ],
+          features: [
+            "Technical deep-dives",
+            "Economics commentary",
+            "Project write-ups and retrospectives",
+          ],
+          notes: ["Updated regularly"],
+        },
+        {
+          id: "space-portfolio",
+          name: "this.SpacePortfolio",
+          subtitle: "Previous portfolio site",
+          description:
+            "A space-themed interactive portfolio with a retro computer terminal aesthetic.",
+          image: "assets/images/alien-sidekick-sm.webp",
+          tags: ["Vanilla JS", "CSS", "Canvas"],
+          status: "Online",
+          link: "https://mccarthykev.dev/space-portfolio",
+          screenshot: "assets/images/screenshots/screenshotPlaceholder.webp",
+
+          repo: "#",
+          tech: ["Vanilla JavaScript", "CSS animations", "HTML5 Canvas"],
+          features: [
+            "Animated space background",
+            "Terminal-style navigation",
+            "Interactive project showcase",
+          ],
+          notes: [
+            "Pure HTML/CSS/JS — zero frameworks",
+            "Inspired by retro sci-fi aesthetics",
+          ],
+        },
+        {
+          id: "ai-story-tellers",
+          name: "Neverending AI Story",
+          subtitle: "Collaborative AI storytelling",
+          description:
+            "A platform for collaborative AI-assisted storytelling where narratives evolve based on community contributions.",
+          image: "assets/images/aistorytellers.webp",
+          tags: ["React", "Node.js", "OpenAI", "PostgreSQL"],
+          status: "Online",
+          link: "#",
+          screenshot: "assets/images/screenshots/screenshotPlaceholder.webp",
+
+          repo: "https://github.com/saganaut/aiechoes",
+          tech: [
+            "React frontend",
+            "Node.js backend",
+            "OpenAI API integration",
+            "PostgreSQL",
+          ],
+          features: [
+            "AI story continuation",
+            "Community voting on story paths",
+            "Character creation",
+            "Branching narrative structure",
+          ],
+          notes: ["Explores human-AI creative collaboration"],
+        },
       ];
 
       // ── Modal ─────────────────────────────────────────────────────
@@ -817,13 +832,13 @@
       const modalCounter = document.getElementById("modal-counter");
       const modalTitle = document.getElementById("modal-title");
       const modalDesc = document.getElementById("modal-description");
-      const modalImg = document.getElementById("modal-image");
+      const modalScreenshot = document.getElementById("modal-screenshot");
       const modalStat = document.getElementById("modal-status");
       const modalLink = document.getElementById("modal-link");
       const modalRepo = document.getElementById("modal-repo");
       const modalList = document.getElementById("modal-list");
       const modalTabs = document.querySelectorAll(".modal-tab");
-
+      const modalLogo = document.getElementById("modal-logo");
       let activeProject = null;
       let activeTab = "tech";
       let currentModalIndex = -1;
@@ -850,12 +865,13 @@
 
         modalTitle.textContent = project.name;
         modalDesc.textContent = project.description;
-        modalImg.src = project.image;
-        modalImg.alt = project.name;
+        modalScreenshot.src = project.screenshot;
+        modalScreenshot.alt = project.name;
         modalStat.textContent = project.status;
         modalLink.href = project.link;
         modalRepo.href = project.repo;
         modalCounter.textContent = `${currentModalIndex + 1} / ${PROJECTS.length}`;
+        modalLogo.src = project.image;
         switchTab("tech");
 
         modal.removeAttribute("inert");
@@ -937,7 +953,7 @@
             `Open ${project.name} — ${project.subtitle}`,
           );
           const tagsHtml = project.tags
-            .map((t) => `<span class="tag card-tag">${t}</span>`)
+            .map((t) => `<span class="tag --projects">${t}</span>`)
             .join("");
           el.innerHTML = `
             <div class="project-row-identity">
@@ -948,8 +964,10 @@
                 <p class="project-name">${project.name}</p>
               </div>
               <div class="bottom-row"> 
-                <p class="project-row-subtitle">${project.subtitle}</p>
-                
+                   <div class="project-screenshot-wrap">
+                    <img class="project-screenshot" src="${project.screenshot}" alt="${project.name} screenshot"/>
+                  </div>                <p class="project-row-subtitle">${project.subtitle}</p>
+
               </div>
             </div>
             <div class="project-row-body">
@@ -959,9 +977,9 @@
               <div class="bottom-row">
               <div class="project-row-tags">${tagsHtml}</div>
                    <div class="project-screenshot-wrap">
-                    <img class="project-screenshot" src="${project.screenshot}" alt="${project.name} screenshot"
+                    <img class="project-screenshot" src="${project.screenshot}" alt="${project.name} screenshot"/>
                   </div>
-           
+        
                 </div>
             </div>`;
           el.addEventListener("click", () => openModal(project, el));
