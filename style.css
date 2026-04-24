@@ -166,6 +166,11 @@ header {
   padding-left: 20px;
   padding-right: 20px;
   z-index: 300;
+
+  img {
+    height: 42px;
+    width: 42px;
+  }
 }
 
 li {
@@ -287,13 +292,13 @@ section {
   font-size: 20px;
   font-weight: 600;
   color: var(--color-secondary);
-  border: 2px var(--color-secondary) solid;
+  border: 1px var(--color-secondary) solid;
   transition: all 0.3s ease-in-out;
 
   &:hover {
     color: var(--color-text-light);
     background-color: transparent;
-    border: 2px var(--color-text-light) solid;
+    border: 1px var(--color-text-light) solid;
   }
 
   &.inverted {
@@ -322,12 +327,12 @@ section {
   font-weight: 700;
 
   &.--dev {
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary-light);
     color: var(--color-primary);
   }
 
   &.--edu {
-    background-color: var(--blue);
+    background-color: var(--color-primary-light);
     color: var(--color-primary);
   }
 
@@ -966,7 +971,7 @@ section {
   &:focus,
   &:focus-visible {
     outline: none;
-    border-color: var(--color-primary);
+    border-color: var(--color-primary-light);
   }
 }
 
@@ -1022,7 +1027,7 @@ section {
 .footer-logo {
   max-height: 72px;
   max-width: 72px;
-  background-color: black;
+  background-color: var(--color-primary);
   border-radius: 100%;
 }
 
@@ -1053,9 +1058,7 @@ section {
 .footer-col-heading {
   font-size: var(--font-size-xs);
   font-weight: 700;
-  color: var(--color-primary);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
   margin-bottom: 14px;
 }
 
@@ -1070,6 +1073,12 @@ section {
   & a {
     font-size: var(--font-size-sm);
   }
+
+  & li {
+    &::before {
+      content: none;
+    }
+  }
 }
 
 .footer-bottom {
@@ -1081,9 +1090,13 @@ section {
     opacity: 0.7;
   }
 }
+
 /* ================================================================
+
    RESPONSIVE  —  breakpoint: 915px
+
    ================================================================ */
+
 @media (width <= 915px) {
   /* ── Typography ─────────────────────────────────────────────── */
   h1 {
