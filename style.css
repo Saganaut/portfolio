@@ -993,7 +993,7 @@ section {
   font-size: var(--font-size-sm);
   color: var(--color-primary-light);
   background-color: var(--color-primary-muted);
-  border: 1px solid var(--color-primary-light);
+  border: 1px solid var(--color-primary-dark);
   border-radius: var(--border-radius);
   padding: 10px 14px;
   width: 100%;
@@ -1225,7 +1225,7 @@ section {
     gap: 16px;
     border-left: none;
     border-right: none;
-    border-bottom: 1px solid oklch(70% 0.19 43deg / 35%);
+    border-bottom: 1px solid var(--color-primary-dark);
   }
 
   .project-row-body,
@@ -1259,7 +1259,7 @@ section {
 
   .edu-sidebar-block {
     border-left: none;
-    border-top: 3px solid var(--color-primary);
+    border-top: 1px solid var(--color-primary-dark);
     padding-left: 0;
     padding-top: 12px;
   }
@@ -1312,7 +1312,7 @@ section {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: oklch(28.037% 0.047 210.797deg / 55%);
+  background: oklch(0% 0 0deg / 55%);
   backdrop-filter: blur(6px);
   z-index: 1000;
   display: flex;
@@ -1465,6 +1465,18 @@ section {
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 10px;
+}
+
+@media (width <= 600px) {
+  .modal-overlay {
+    width: 100%;
+    height: 100dvh;
+    padding: 0;
+  }
+
+  .modal-dialog {
+    max-height: 9999px;
+  }
 }
 
 @media (width <= 520px) {
