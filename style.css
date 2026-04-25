@@ -90,6 +90,8 @@ body {
   grid-template-rows: auto 1fr auto;
   min-height: 100dvh;
   margin: 0;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 button {
@@ -306,7 +308,9 @@ section {
   font-weight: 600;
   color: var(--color-secondary);
   border: 1px var(--color-secondary) solid;
-  transition: all 0.3s ease-in-out;
+  transition:
+    color 0.3s ease-in-out,
+    border-color 0.3s ease-in-out;
 
   &:hover {
     color: var(--color-text-light);
@@ -1359,7 +1363,7 @@ section {
   border: 1px solid var(--color-primary-light);
 
   & svg {
-    transition: all 0.2s ease-in-out;
+    transition: fill 0.2s ease-in-out;
     fill: var(--color-primary-light);
   }
 
@@ -1390,8 +1394,9 @@ section {
   border-radius: 50%;
   border: 1px solid var(--color-primary-light);
 
+  /* stylelint-disable-next-line no-descending-specificity */
   & svg {
-    transition: all 0.2s ease-in-out;
+    transition: fill 0.2s ease-in-out;
     fill: var(--color-primary-light);
   }
 
