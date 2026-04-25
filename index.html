@@ -667,6 +667,8 @@
           id: "cephadex",
           name: "Cephadex",
           subtitle: "Ed-tech platform",
+          shortDescription:
+            "An educational platform allowing for the creation of flashcards, quizzes, games, & tests.",
           description:
             "An educational platform allowing for the creation of flashcards, quizzes, games, & tests.",
           image: "assets/images/CephadexLogoSix.png",
@@ -698,6 +700,8 @@
           id: "swift-swatch",
           name: "SwiftSwatch",
           subtitle: "UI designer tool",
+          shortDescription:
+            "A UI design tool for rapidly generating and previewing color swatches and design tokens.",
           description:
             "A UI design tool for rapidly generating and previewing color swatches and design tokens.",
           image: "assets/images/swift-swatch-logo-sm.png",
@@ -727,6 +731,8 @@
           id: "cognaite",
           name: "Cognaite",
           subtitle: "Starter template",
+          shortDescription:
+            "A modern full-stack starter template for quickly bootstrapping new web applications.",
           description:
             "A modern full-stack starter template for quickly bootstrapping new web applications.",
           image: "assets/images/starter-logo.svg",
@@ -749,29 +755,25 @@
           id: "chair-the-fed",
           name: "Chair the Fed",
           subtitle: "Monetary policy simulator",
+          shortDescription:
+            "An interactive simulator that puts you in the seat of the Federal Reserve chair, managing monetary policy decisions.",
           description:
             "An interactive simulator that puts you in the seat of the Federal Reserve chair, managing monetary policy decisions.",
           image: "assets/images/chair-the-fed.webp",
-          tags: ["React", "D3.js", "Recharts"],
+          tags: ["JS", "CSS", "HTML"],
           status: "Online",
           link: "https://saganaut.github.io/Chair-the-Fed/",
           screenshot: "assets/images/screenshots/screenshotPlaceholder.webp",
 
           repo: "https://github.com/saganaut/Chair-the-Fed",
-          tech: [
-            "React",
-            "D3.js for data visualizations",
-            "Custom economic model engine",
-            "Recharts for charting",
-          ],
+          tech: ["JS", "CSS", "HTML"],
           features: [
-            "Real-time economic indicators",
             "Interest rate controls",
-            "Policy outcome simulation",
-            "Historical scenario comparisons",
+            "React to different economic scenarios",
+            "Learn about monetary policy",
           ],
           notes: [
-            "Combines economics background with software development",
+            "This was the first project I ever put online, it is an attempt to re-create a simulator that the one of the Federal Reserve banks made.  It was a great learning tool but as it was made with flash it eventually got retired.",
             "Useful for teaching monetary policy concepts",
           ],
         },
@@ -779,55 +781,59 @@
           id: "blog",
           name: "Personal Blog",
           subtitle: "Writing & thoughts",
+          shortDescription:
+            "A personal blog covering topics in software development, economics, and education.",
           description:
             "A personal blog covering topics in software development, economics, and education.",
           image: "assets/images/acorn.png",
-          tags: ["Static Site", "Markdown", "CDN"],
+          tags: ["WordPress", "VPS", "Docker"],
           status: "Online",
-          link: "https://blog.cognaite.com",
+          link: "https://blog.mccarthykev.dev",
           screenshot: "assets/images/screenshots/screenshotPlaceholder.webp",
 
           repo: "#",
-          tech: [
-            "Static site generator",
-            "Markdown content",
-            "Deployed on CDN",
-          ],
+          tech: ["WordPress", "VPS", "Docker", "MySQL"],
           features: [
-            "Technical deep-dives",
-            "Economics commentary",
+            "Custom WP theme",
+            "Privacy features",
             "Project write-ups and retrospectives",
           ],
-          notes: ["Updated regularly"],
+          notes: ["Updated semi-regularly"],
         },
         {
           id: "space-portfolio",
           name: "Space Portfolio",
           subtitle: "Previous portfolio site",
+          shortDescription:
+            "A unique, handcrafted portfolio site with an animated space environment, built with plain HTML/CSS/TS and a custom game-loop engine.",
           description:
-            "A space-themed interactive portfolio with a retro computer terminal aesthetic.",
+            "After seeing a huge amount of AI generated portfolios I wanted to create something truly unique that I knew would stand out in a sea of generated content.  After spending a lot of time working with React this was also an opportunity for me to go back to basics and strengthen my fundamentals.  As I built it and it grew more complex I found I had to not only implement some of the methods used in game creation in order to handle all the animations, but also gained an appreciation for the usefulness of Typescript and Vite - which I had originally decided to forego.  The design process was also an important learning experience.  I originally started coding directly, but then turned to figma to create detailed mock ups and component libraries.  This project also makes heavy uses of animated SVGs, which I hadn't worked with much in the past.",
           image: "assets/images/alien-sidekick-sm.webp",
-          tags: ["Vanilla JS", "CSS", "Canvas"],
+          tags: ["Typescript", "CSS", "Vite", "HTML"],
           status: "Online",
           link: "https://mccarthykev.dev/space-portfolio",
           screenshot: "assets/images/screenshots/screenshotPlaceholder.webp",
 
           repo: "#",
-          tech: ["Vanilla JavaScript", "CSS animations", "HTML5 Canvas"],
+          tech: ["Typescript", "CSS", "Vite", "HTML", "OOP"],
           features: [
             "Animated space background",
-            "Terminal-style navigation",
+            "Complex CSS animations",
+            "Innovative design",
             "Interactive project showcase",
           ],
           notes: [
-            "Pure HTML/CSS/JS — zero frameworks",
-            "Inspired by retro sci-fi aesthetics",
+            "Started as a weeekend project in plain HTML/CSS/JS",
+            "As it evolved saw the need to switch to TS and Vite",
+            "Created a small 'game engine' to deal with all the interactivity",
           ],
         },
         {
           id: "ai-story-tellers",
           name: "Neverending AI Story",
           subtitle: "Collaborative AI storytelling",
+          shortDescription:
+            "A platform for collaborative AI-assisted storytelling where narratives evolve based on community contributions.",
           description:
             "A platform for collaborative AI-assisted storytelling where narratives evolve based on community contributions.",
           image: "assets/images/aistorytellers.webp",
@@ -868,6 +874,7 @@
       const modalList = document.getElementById("modal-list");
       const modalTabs = document.querySelectorAll(".modal-tab");
       const modalLogo = document.getElementById("modal-logo");
+      const modalBody = modal.querySelector(".modal-body");
       let activeProject = null;
       let activeTab = "tech";
       let currentModalIndex = -1;
@@ -930,7 +937,11 @@
       function navigateModal(dir) {
         const next =
           (currentModalIndex + dir + PROJECTS.length) % PROJECTS.length;
-        openModal(PROJECTS[next], undefined, false); // preserve lastFocusedEl, keep focus in place
+        modalBody.classList.add("is-transitioning");
+        setTimeout(() => {
+          openModal(PROJECTS[next], undefined, false);
+          modalBody.classList.remove("is-transitioning");
+        }, 150);
       }
 
       // Focus trap: keep Tab cycling within the open modal
@@ -963,16 +974,24 @@
 
       // Swipe navigation — mirrors ArrowLeft/ArrowRight keyboard handling
       let swipeStartX = null;
-      modal.addEventListener("touchstart", (e) => {
-        swipeStartX = e.touches[0].clientX;
-      }, { passive: true });
-      modal.addEventListener("touchend", (e) => {
-        if (swipeStartX === null) return;
-        const delta = e.changedTouches[0].clientX - swipeStartX;
-        swipeStartX = null;
-        if (Math.abs(delta) < 50) return;
-        navigateModal(delta < 0 ? 1 : -1);
-      }, { passive: true });
+      modal.addEventListener(
+        "touchstart",
+        (e) => {
+          swipeStartX = e.touches[0].clientX;
+        },
+        { passive: true },
+      );
+      modal.addEventListener(
+        "touchend",
+        (e) => {
+          if (swipeStartX === null) return;
+          const delta = e.changedTouches[0].clientX - swipeStartX;
+          swipeStartX = null;
+          if (Math.abs(delta) < 50) return;
+          navigateModal(delta < 0 ? 1 : -1);
+        },
+        { passive: true },
+      );
       modal.addEventListener("click", (e) => {
         if (e.target === modal) closeModal();
       });
@@ -1014,7 +1033,7 @@
             </div>
             <div class="project-row-body">
               <div class="top-row">
-                <p class="project-row-desc">${project.description}</p>
+                <p class="project-row-desc">${project.shortDescription}</p>
               </div>
               <div class="bottom-row">
               <div class="project-row-tags">${tagsHtml}</div>

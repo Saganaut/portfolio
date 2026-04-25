@@ -194,32 +194,34 @@ footer {
   border-top: 1px solid oklch(62.449% 0.0848 230.263deg / 20%);
 }
 
-.slide-underline {
-  color: inherit;
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-  text-decoration: none;
-  padding-bottom: 1px;
+@media (width >= 601px) {
+  .slide-underline {
+    color: inherit;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    text-decoration: none;
+    padding-bottom: 1px;
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-text-light);
-    opacity: 0;
-    transform: translate3d(-100%, 0, 0);
-    transition:
-      opacity 50ms,
-      transform 0.3s ease;
-  }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--color-text-light);
+      opacity: 0;
+      transform: translate3d(-100%, 0, 0);
+      transition:
+        opacity 50ms,
+        transform 0.3s ease;
+    }
 
-  &:hover::after {
-    opacity: 0.6;
-    transform: translate3d(0, 0, 0);
+    &:hover::after {
+      opacity: 0.6;
+      transform: translate3d(0, 0, 0);
+    }
   }
 }
 
@@ -1332,7 +1334,7 @@ section {
 .modal-dialog {
   background: oklch(from var(--color-primary) 26% c h);
   border-radius: var(--border-radius);
-  max-width: 880px;
+  max-width: 1000px;
   width: 100%;
   max-height: calc(100dvh - 80px);
   overflow-y: auto;
@@ -1414,6 +1416,11 @@ section {
   display: grid;
   grid-template-columns: 260px 1fr;
   gap: 32px;
+  transition: opacity 0.15s ease;
+}
+
+.modal-body.is-transitioning {
+  opacity: 0;
 }
 
 .modal-col-right {
@@ -1469,9 +1476,20 @@ section {
 
 @media (width <= 600px) {
   .modal-overlay {
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100dvh;
+    align-items: start;
     padding: 0;
+  }
+
+  .modal-body {
+    height: calc(100dvh - 96px);
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   .modal-dialog {
@@ -1498,9 +1516,11 @@ section {
 }
 
 .modal-description {
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   margin-bottom: 24px;
   min-height: 160px;
+  max-height: 300px;
+  overflow: auto;
 }
 
 .modal-tabs {
