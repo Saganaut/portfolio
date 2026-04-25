@@ -177,15 +177,13 @@ header {
 
 li {
   font-size: var(--font-size-sm);
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
 
   &::before {
     content: "▸";
     color: var(--color-primary-light);
     flex-shrink: 0;
     margin-top: 1px;
+    padding-right: 8px;
   }
 }
 
@@ -202,6 +200,7 @@ footer {
     overflow: hidden;
     text-decoration: none;
     padding-bottom: 1px;
+    white-space: nowrap;
 
     &::after {
       content: "";
@@ -764,7 +763,7 @@ section {
 }
 
 .edu-sidebar-block {
-  border-left: 3px solid var(--color-primary);
+  border-left: 1px solid var(--color-primary-dark);
   padding-left: 16px;
 }
 
@@ -1060,7 +1059,7 @@ section {
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   padding-bottom: 48px;
-  border-bottom: 1px solid oklch(70% 0.19 43deg / 15%);
+  border-bottom: 1px solid var(--color-primary-dark);
 }
 
 .footer-brand {
@@ -1340,6 +1339,7 @@ section {
   overflow-y: auto;
   position: relative;
   padding: 24px;
+  font-size: var(--font-size-sm);
 }
 
 .modal-header {
@@ -1423,6 +1423,10 @@ section {
   opacity: 0;
 }
 
+.modal-screenshot {
+  border-radius: 8px;
+}
+
 .modal-col-right {
   .title-row {
     display: flex;
@@ -1469,9 +1473,13 @@ section {
 
 .modal-meta-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   align-items: center;
   gap: 10px;
+
+  &[hidden] {
+    display: none;
+  }
 }
 
 @media (width <= 600px) {
@@ -1509,14 +1517,23 @@ section {
   padding: 3px 10px;
   border-radius: 999px;
   white-space: nowrap;
+  height: 100%;
 }
 
-.meta-value {
-  font-size: var(--font-size-sm);
+.modal-status-icon {
+  display: none;
+  vertical-align: middle;
+  margin-left: 4px;
+  width: 16px;
+  height: 16px;
+  fill: var(--color-text-light);
+}
+
+.modal-status-icon.is-visible {
+  display: inline;
 }
 
 .modal-description {
-  font-size: var(--font-size-sm);
   margin-bottom: 24px;
   min-height: 160px;
   max-height: 300px;
@@ -1527,7 +1544,7 @@ section {
   display: flex;
   gap: 6px;
   padding-bottom: 12px;
-  border-bottom: 2px solid oklch(70% 0.19 43deg / 30%);
+  border-bottom: 2px solid var(--color-primary-dark);
   margin-bottom: 16px;
 
   button {
@@ -1558,10 +1575,14 @@ section {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
+  column-count: 2;
   gap: 8px;
   min-height: 160px;
+
+  &:not([data-list-type="tech"]) {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @media (width <= 815px) {
