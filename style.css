@@ -1406,7 +1406,7 @@ section {
   border-radius: var(--border-radius);
   max-width: 1000px;
   width: 100%;
-  height: calc(100dvh - 80px);
+  max-height: calc(100dvh - 80px);
   overflow-y: auto;
   position: relative;
   padding: 24px;
@@ -1555,7 +1555,7 @@ section {
 
 @media (width <=915px) {
   .modal-dialog {
-    height: auto;
+    height: 100dvh;
   }
 }
 
@@ -1570,7 +1570,7 @@ section {
   }
 
   .modal-body {
-    height: calc(100dvh - 96px);
+    max-height: calc(100dvh - 96px);
     overflow: auto;
     display: flex;
     flex-direction: column;
