@@ -304,7 +304,7 @@ section {
   border-radius: var(--border-radius);
   background-color: var(--color-primary);
   max-width: 200px;
-  padding: 1rem 2rem;
+  padding: 0.8rem 1.6rem;
   font-size: 20px;
   font-weight: 600;
   color: var(--color-secondary);
@@ -388,7 +388,7 @@ section {
   gap: 8px;
   padding: 6px 14px 6px 10px;
   border-radius: 999px;
-  border: 1.5px solid var(--color-text);
+  border: 1.5px solid var(--color-primary-light);
   background-color: var(--color-primary-muted);
   font-size: var(--font-size-xs);
   font-weight: 700;
@@ -401,22 +401,22 @@ section {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: var(--color-secondary);
+  background-color: var(--color-text-light);
   flex-shrink: 0;
   animation: hire-pulse 2.2s ease-out infinite;
 }
 
 @keyframes hire-pulse {
   0% {
-    box-shadow: 0 0 0 0 oklch(70% 0.16 133deg / 55%);
+    box-shadow: 0 0 0 0 oklch(from var(--color-text-light) l c h / 55%);
   }
 
   60% {
-    box-shadow: 0 0 0 7px oklch(70% 0.16 133deg / 0%);
+    box-shadow: 0 0 0 7px oklch(from var(--color-text) l c h / 0%);
   }
 
   100% {
-    box-shadow: 0 0 0 0 oklch(70% 0.16 133deg / 0%);
+    box-shadow: 0 0 0 0 oklch(from var(--color-text-text) l c h / 0%);
   }
 }
 
@@ -433,6 +433,7 @@ section {
   .content {
     display: grid;
     grid-template-columns: 1.8fr 1.2fr;
+    gap: 10px;
   }
 
   .content .copy {
@@ -441,10 +442,14 @@ section {
     gap: 20px;
     display: flex;
     flex-direction: column;
+
+    a {
+      margin-top: 20px;
+    }
   }
 
   .content .copy h1 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .content .copy a::after {
@@ -464,6 +469,48 @@ section {
   .content .copy .description {
     margin-bottom: 10px;
   }
+
+  .hero-word-cloud {
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+.wc-word {
+  font-family: var(--font-family);
+  line-height: 1;
+  color: var(--color-text);
+  cursor: default;
+  transition: opacity 0.2s ease;
+}
+
+.wc-xl {
+  font-size: 2.2rem;
+  opacity: 1;
+}
+
+.wc-lg {
+  font-size: 1.6rem;
+  opacity: 0.8;
+}
+
+.wc-md {
+  font-size: 1.15rem;
+  opacity: 0.7;
+}
+
+.wc-sm {
+  font-size: 0.875rem;
+  opacity: 0.6;
+}
+
+.wc-xs {
+  font-size: 0.7rem;
+  opacity: 0.45;
+}
+
+.wc-word:hover {
+  opacity: 1 !important;
 }
 
 /* ── PROJECTS SECTION ─────────────────────────────────── */
@@ -944,6 +991,18 @@ section {
   font-size: var(--font-size-base);
   max-width: 540px;
   line-height: 1.6;
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  a {
+    text-decoration: underline;
+    display: inline;
+    text-underline-offset: 1px;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  a:hover {
+    color: var(--color-primary-light);
+  }
 }
 
 .contact-form {
@@ -1204,8 +1263,12 @@ section {
   }
 
   #hero-section .content .copy {
-    padding-top: 100px;
-    padding-bottom: 60px;
+    padding-top: 80px;
+    padding-bottom: 20px;
+  }
+
+  .hero-word-cloud {
+    display: none;
   }
 
   /* ── Projects ────────────────────────────────────────────────── */
@@ -1227,6 +1290,14 @@ section {
     border-left: none;
     border-right: none;
     border-bottom: 1px solid var(--color-primary-dark);
+  }
+
+  .project-row-body {
+    & .top-row {
+      .project-row-desc {
+        font-size: var(--font-size-xs);
+      }
+    }
   }
 
   .project-row-body,
@@ -1538,6 +1609,10 @@ section {
   min-height: 160px;
   max-height: 300px;
   overflow: auto;
+
+  p + p {
+    margin-top: 12px;
+  }
 }
 
 .modal-tabs {
@@ -1585,7 +1660,7 @@ section {
   }
 }
 
-@media (width <= 815px) {
+@media (width <= 915px) {
   .modal-dialog {
     padding: 20px 16px 24px;
   }
@@ -1600,11 +1675,43 @@ section {
   }
 
   .modal-col-left {
-    order: 2;
+    order: 1;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
     align-items: start;
+  }
+
+  .modal-col-right {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-list {
+    min-height: 0;
+    padding-bottom: 20px;
+  }
+
+  .modal-title {
+    order: 1;
+  }
+
+  .modal-description {
+    order: 4;
+  }
+
+  .meta-label {
+    display: none;
+  }
+
+  #modal-status {
+    white-space: nowrap;
+  }
+
+  .modal-meta-row {
+    grid-template-columns: 1fr;
+    padding-right: 8px;
   }
 
   .modal-meta {
